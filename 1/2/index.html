@@ -1,0 +1,791 @@
+<!-- Fix MathJax rendering on iOS Safari due to rendering long numbers as phone numbers. -->
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+	
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+	<meta name="format-detection" content="telephone=no">
+
+    
+      
+        <title>2.relational algebra - Learning Notes of Data Base Management System</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.01803549.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#03a9f4">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="../../css/basic.css">
+    
+      <link rel="stylesheet" href="../../css/wab.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-117404761-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#1" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Learning Notes of Data Base Management System" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">import_contacts</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Learning Notes of Data Base Management System
+            </span>
+            <span class="md-header-nav__topic">
+              
+                2.relational algebra
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Learning Notes of Data Base Management System" class="md-nav__button md-logo">
+      
+        <i class="md-icon">import_contacts</i>
+      
+    </a>
+    Learning Notes of Data Base Management System
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Preface" class="md-nav__link">
+      Preface
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../color/" title="Color" class="md-nav__link">
+      Color
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      I Relational Model
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        I Relational Model
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../1/" title="1.basic concepts" class="md-nav__link">
+      1.basic concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        2.relational algebra
+      </label>
+    
+    <a href="./" title="2.relational algebra" class="md-nav__link md-nav__link--active">
+      2.relational algebra
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1. 关系代数概述" class="md-nav__link">
+    1. 关系代数概述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" title="2. 基本运算" class="md-nav__link">
+    2. 基本运算
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" title="(1). 选择" class="md-nav__link">
+    (1). 选择
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" title="(2). 投影" class="md-nav__link">
+    (2). 投影
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" title="(3). 并运算" class="md-nav__link">
+    (3). 并运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" title="(4). 集合差" class="md-nav__link">
+    (4). 集合差
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" title="(5). 笛卡尔积" class="md-nav__link">
+    (5). 笛卡尔积
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" title="(6). 更名" class="md-nav__link">
+    (6). 更名
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" title="3. 附加运算" class="md-nav__link">
+    3. 附加运算
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" title="(1). 集合交" class="md-nav__link">
+    (1). 集合交
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" title="(2). 自然连接" class="md-nav__link">
+    (2). 自然连接
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" title="(3). 赋值" class="md-nav__link">
+    (3). 赋值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" title="(4). 外连接" class="md-nav__link">
+    (4). 外连接
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" title="(5). 除" class="md-nav__link">
+    (5). 除
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4_2" title="4. 扩展运算" class="md-nav__link">
+    4. 扩展运算
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" title="(1). 广义投影" class="md-nav__link">
+    (1). 广义投影
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" title="(2). 聚集" class="md-nav__link">
+    (2). 聚集
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1. 关系代数概述" class="md-nav__link">
+    1. 关系代数概述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" title="2. 基本运算" class="md-nav__link">
+    2. 基本运算
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" title="(1). 选择" class="md-nav__link">
+    (1). 选择
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" title="(2). 投影" class="md-nav__link">
+    (2). 投影
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" title="(3). 并运算" class="md-nav__link">
+    (3). 并运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" title="(4). 集合差" class="md-nav__link">
+    (4). 集合差
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" title="(5). 笛卡尔积" class="md-nav__link">
+    (5). 笛卡尔积
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" title="(6). 更名" class="md-nav__link">
+    (6). 更名
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" title="3. 附加运算" class="md-nav__link">
+    3. 附加运算
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" title="(1). 集合交" class="md-nav__link">
+    (1). 集合交
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" title="(2). 自然连接" class="md-nav__link">
+    (2). 自然连接
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" title="(3). 赋值" class="md-nav__link">
+    (3). 赋值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" title="(4). 外连接" class="md-nav__link">
+    (4). 外连接
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" title="(5). 除" class="md-nav__link">
+    (5). 除
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4_2" title="4. 扩展运算" class="md-nav__link">
+    4. 扩展运算
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" title="(1). 广义投影" class="md-nav__link">
+    (1). 广义投影
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" title="(2). 聚集" class="md-nav__link">
+    (2). 聚集
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>2.relational algebra</h1>
+                
+                <p><font face="思源黑体 CN">
+<font face="Consolas"></font>
+<font face="Times New Roman"></font></p>
+<h3 id="1">1. 关系代数概述</h3>
+<p>&emsp;关系代数是一种过程化查询语言，它包括一个运算的集合，这些运算以一个或两个关系为输入，产生一个新的关系作为结果，是学习其他数据库语言的基础。
+<html> 
+<body>
+<ul style="margin-top:-10px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 16px;">基本运算：选择: $\sigma$，投影 (<font face="Times New Roman">project</font>): $\Pi$，并: $\cup$，差: $-$，笛卡尔积 (<font face="Times New Roman">Cartesian product</font>): $\times$，重命名 (<font face="Times New Roman">rename</font>): $\rho$</li>
+<li style="margin:1px 16px;">其他运算：交，自然连接 (<font face="Times New Roman">natural join</font>)，除</li>
+</ul>
+</body>
+</html></p>
+<h3 id="2">2. 基本运算</h3>
+<h4 id="1_1">(1). 选择</h4>
+<p>&emsp;选择运算选出满足给定谓词的元组。用 $\sigma$ 表示选择，将谓词写作下标，参数写在括号中。通常，谓词允许六种比较运算符和连词 ($\lor, \land, \lnot$)。例如：</p>
+<p>$$\sigma_{\mathit{dept\_name=\mathrm{"Physics"} \ \land\ salary&gt;90000}} (\mathit{instructor})$$</p>
+<h4 id="2_1">(2). 投影</h4>
+<p>&emsp;投影运算返回作为参数的关系，但排除指定属性外的属性，所得结果默认消除重复元组。例如：
+$$\Pi_{\mathit{ID,name,salary}}\mathit{(instructor)}$$</p>
+<h4 id="3">(3). 并运算</h4>
+<p>&emsp;要使并运算 $r\cup s$ 有意义，必须保证做并运算的关系是相容的：
+<html> 
+<body>
+<ul style="margin-top:-10px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 29px;">$r$ 和 $s$ 的属性数目必须相同；</li>
+<li style="margin:1px 29px;">对 $\forall\ i$，$r$ 的第 $i$ 个属性的域必须与 $s$ 的第 $i$ 个属性的域相同。</li>
+</ul>
+</body>
+</html></p>
+<p>&emsp;例如：
+$$\Pi_{\mathit{course\_id}}(\sigma_{semester=\mathrm{"Fall"}}(section)) \ \cup\ \Pi_{\mathit{course\_id}}(\sigma_{semester=\mathrm{"Spring"}}(section))$$</p>
+<h4 id="4">(4). 集合差</h4>
+<p>&emsp;集合差运算找出在一个关系而不在另一个关系中的那些元组。例如：
+$$\Pi_{\mathit{course\_id}}(\sigma_{semester=\mathrm{"Fall"}}(section)) \ -\ \Pi_{\mathit{course\_id}}(\sigma_{semester=\mathrm{"Spring"}}(section))$$</p>
+<h4 id="5">(5). 笛卡尔积</h4>
+<p>&emsp;笛卡尔积运算可使任意两个关系组合到一起。以 $\small r_1=\mathit{instructor(ID, name, dept\_name)}$ 和 $\small r_2=\mathit{teaches(ID,course\_id,semester)}$ 为例，对于 $r_1\times r_2$，需要一个机制区分同名属性，因此有：
+$$r_1\times r_2=(\mathit{instructor.ID,\ teaches.ID,\ name,\ dept\_name,\ course\_id,\ semester})$$
+这种方法在与自身作笛卡尔积或使用关系代数表达式作参数时会产生问题，这些问题通过更名运算避免。</p>
+<p>例如，假设我们需要找出物理系所有教师，以及他们教授的所有课程，则有：
+$$\sigma_{\mathit{inst.ID=teaches.ID}}(\sigma_{\mathit{dept\_name=\mathrm{"Physics"}}}(instructor\times teaches))$$</p>
+<h4 id="6">(6). 更名</h4>
+<p>关系代数表达式的结果没有可供引用的名字，更名运算解决此问题，它有两种形式：
+<html> 
+<body>
+<ul style="margin-top:-10px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 26px;">$\small \rho_x(E)$ 返回表达式 $\small E$ 的结果，并把名字 $\small x$ 赋给了它</li>
+<li style="margin:1px 26px;">若表达式 $\small E$ 是 $n$ 元的，则更名运算的形式为 $\small \rho_{x(A_1,...,A_n)}(E)$，赋给 $\small E$ 名字 $x$ 的同时，将各属性更名为 $\small A_1,...,A_n$。</li>
+</ul>
+</body>
+</html></p>
+<p>例：查找大学中的最高工资：
+$$\Pi_{\mathit{salary}}(instructor)-\Pi_{\mathit{instructor.salary}}(\sigma_{\mathit{instructor.salary&lt;d.salary}}(instructor\times \rho_d(instructor)))$$
+其中更名运算不是必需的，计算非最高工资可以通过属性的位置标记实现：
+$$\Pi_{\$4}(\sigma_{\$4&lt;\$8}(instructor\times instructor))$$
+由于这种方式不便于记忆，故在这里不使用。</p>
+<h3 id="3_1">3. 附加运算</h3>
+<p>&emsp;关系代数的基本运算足以表达任何关系代数查询，但若只局限于此，一些表达式会变得冗长，因此引入附加运算。</p>
+<h4 id="1_2">(1). 集合交</h4>
+<p>&emsp;同集合并，交也需要满足相容性。由 $r\cap s=r-(r-s)$，集合交只是为了方便表达。</p>
+<h4 id="2_2">(2). 自然连接</h4>
+<p>&emsp;多数情况下，涉及笛卡尔积的查询会包含一个对笛卡尔积结果进行选择的运算，该选择要求两个关系的所有相同属性值一致，最后还要去除重复属性。因此，令 $\small R$ 和 $\small S$ 为两个关系模式，关系 $r$ 和 $s$ 的自然连接形式化定义为
+$$r\bowtie s=\Pi_{R\cup S}(\sigma_{r.A_1=s.A_1\ \land \ r.A_2=s.A_2 \ \land ... \land \ r.A_n=s.A_n}(r\times s))$$
+其中 $\small R\cap S=\lbrace A_1,\ A_2,\ ...,A_n\rbrace$。若 $\small R\cap S=\emptyset$，则 $r\bowtie s = r\times s$。</p>
+<p>自然连接满足结合律。例：找出计算机系所有教师，以及他们所教授的课程的名称
+$$\Pi_{\mathit{name,title}}(\sigma_{dept\_name=\mathrm{"Comp.Sci"}}(\mathit{instructor}\bowtie\mathit{teaches}\bowtie\mathit{course}))$$</p>
+<p>$\theta$ 连接是自然连接的扩展，它把选择运算和笛卡尔积运算合并为一个运算：
+$$r\bowtie_\theta s =\sigma_\theta(r\times s)$$</p>
+<h4 id="3_2">(3). 赋值</h4>
+<p>&emsp;赋值运算可以简化复杂查询，将其表达为一个顺序程序，该程序由一系列赋值和一个查询结果表达式组成。自然连接可表达为：
+$$
+\begin{aligned}
+&amp;\mathit{temp1}\ \gets\ r\times s\\
+&amp;\mathit{temp2}\ \gets\ \sigma_{r.A_1=s.A_1\ \land \ r.A_2=s.A_2 \ \land ... \land \ r.A_n=s.A_n}(\mathit{temp1})\\
+&amp;\mathit{result}=\Pi_{R\cup S}(\mathit{temp2})
+\end{aligned}
+$$</p>
+<h4 id="4_1">(4). 外连接</h4>
+<p>&emsp;外连接 (<font face="Times New Roman">outer-join</font>) 运算是连接运算的扩展。如果 $\small \mathit{intructor}$ 中有些教师不教课，那么 $\small \mathit{instructor}\bowtie \mathit{teaches}$ 中就会无法查询到这些教师的信息。</br>
+&emsp;左外连接 (⟕) 把左侧关系中所有与右侧关系中任一元组不匹配的元组的右侧属性部分用空值填充，并添加到自然连接的结果中；右外连接 (⟖) 与此对称，全外连接 (⟗) 既做左外连接又做右外连接。左外连接可用基本关系代数表示为：
+$$r⟕s=(r\Join s)\cup(r-\Pi_R(r\Join s))\times \lbrace(\mathit{null,\ ...\ ,null\ })\rbrace$$
+其中常数关系 $\lbrace(\mathit{null,\ ... \ ,null\ })\rbrace$ 的模式是 $\small S-R$。</br>
+&emsp;由于外连接可能产生含有空值的结果，我们需要了解不同的关系代数运算是如何处理空值的。</p>
+<h4 id="5_1">(5). 除</h4>
+<p>$$r\div s=\lbrace t | t\in\Pi_{R-S}(r)\ \land \ \forall u \in s(tu \in r) \rbrace $$
+其中 $tu$ 是元组的连接。除操作用关系代数表达为：
+$$r\div s = \Pi_{R-S}(r)-\Pi_{R-S}((\Pi_{R-S}(r)\times s)-r)$$</p>
+<h3 id="4_2">4. 扩展运算</h3>
+<p>扩展的关系代数运算可以实现一些用基本的关系代数运算无法表达的查询。</p>
+<h4 id="1_3">(1). 广义投影</h4>
+<p>&emsp;它通过允许在投影列表中使用算术运算和字符串函数来对投影进行扩展。例：
+$$\Pi_{\mathit{ID,name,salary/12}}(\mathit{instructor})$$</p>
+<h4 id="2_3">(2). 聚集</h4>
+<p>&emsp;聚集运算 $\mathcal{G}$ 通过对值的集合使用聚集函数扩展关系代数运算。常用的聚集函数有 $\mathrm{sum、avg、count、min、max}$ 等。聚集函数可以作用于 <font face="Times New Roman">multiset</font>，如果需要去除重复值，可以通过连字符把 $\mathrm{distinct}$ 附加在函数名后。</p>
+<p>例：找出春季学期教课的教师数：
+$$\mathcal{G}_{\mathrm{count-distinct}(ID)}(\sigma_{\mathit{semester=\mathrm{"Spring"}}}(\mathit{teaches}))$$</p>
+<p>有时候，我们希望对一组元组集合而非单个元组集合执行聚集函数。例如，求出每个系的平均工资：
+$$_\mathit{dept\_name}\mathcal{G}_{\mathrm{average}(\mathit{salary})}(\mathit{instructor})$$
+该操作首先通过 $\small\mathit{dept\_name}$ 对 $\small\mathit{instructor}$ 进行分组，然后再执行指定的聚集。</p>
+<p></font></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../1/" title="1.basic concepts" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                1.basic concepts
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="../../js/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

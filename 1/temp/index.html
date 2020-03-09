@@ -1,3 +1,4 @@
+<!-- Fix MathJax rendering on iOS Safari due to rendering long numbers as phone numbers. -->
 
 
 
@@ -6,6 +7,7 @@
 <html lang="en" class="no-js">
   <head>
     
+	
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -31,18 +33,20 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="/assets/favicon.png">
+      <link rel="shortcut icon" href="../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
     
+	<meta name="format-detection" content="telephone=no">
+
     
       
-        <title>Learning Notes of Data Base Management System</title>
+        <title>Temp - Learning Notes of Data Base Management System</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/application.0284f74d.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
       
-        <link rel="stylesheet" href="/assets/stylesheets/application-palette.01803549.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.01803549.css">
       
       
         
@@ -51,7 +55,7 @@
       
     
     
-      <script src="/assets/javascripts/modernizr.74668098.js"></script>
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
     
     
       
@@ -60,14 +64,14 @@
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
-    <link rel="stylesheet" href="/assets/fonts/material-icons.css">
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="/css/katex.css">
+      <link rel="stylesheet" href="../../css/katex.css">
     
-      <link rel="stylesheet" href="/css/basic.css">
+      <link rel="stylesheet" href="../../css/basic.css">
     
-      <link rel="stylesheet" href="/css/wab.css">
+      <link rel="stylesheet" href="../../css/wab.css">
     
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css">
     
@@ -121,7 +125,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="/." title="Learning Notes of Data Base Management System" class="md-header-nav__button md-logo">
+        <a href="../.." title="Learning Notes of Data Base Management System" class="md-header-nav__button md-logo">
           
             <i class="md-icon">import_contacts</i>
           
@@ -138,7 +142,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                
+                Temp
               
             </span>
           
@@ -191,7 +195,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="/." title="Learning Notes of Data Base Management System" class="md-nav__button md-logo">
+    <a href="../.." title="Learning Notes of Data Base Management System" class="md-nav__button md-logo">
       
         <i class="md-icon">import_contacts</i>
       
@@ -207,7 +211,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="Preface" class="md-nav__link">
+    <a href="../.." title="Preface" class="md-nav__link">
       Preface
     </a>
   </li>
@@ -219,7 +223,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/color/" title="Color" class="md-nav__link">
+    <a href="../../color/" title="Color" class="md-nav__link">
       Color
     </a>
   </li>
@@ -250,7 +254,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/1/1/" title="1.basic concepts" class="md-nav__link">
+    <a href="../1/" title="1.basic concepts" class="md-nav__link">
       1.basic concepts
     </a>
   </li>
@@ -262,7 +266,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/1/2/" title="2.relational algebra" class="md-nav__link">
+    <a href="../2/" title="2.relational algebra" class="md-nav__link">
       2.relational algebra
     </a>
   </li>
@@ -284,8 +288,58 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
-
+                
+                
+                  <h1>Temp</h1>
+                
+                <p><font face="宋体"></p>
+<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;第一次作业</p>
+<p>1、</p>
+<p>1）  查询学习过课程号为 001 或 002 的学生的学号和成绩
+$$
+\Pi_{\mathit{S#,Grade}}(\sigma_{c#=001\ \lor\ c#=002}(\mathrm{SC}))
+$$</p>
+<p>2）  查询学习过课程号为 001 的学生学号、姓名、及这门课的成绩
+$$
+\Pi_{\mathit{S#,SName,Grade}}(\sigma_{C#=001}(\mathrm{S\bowtie SC}))
+$$</p>
+<p>3）  查询没有学习过课程号为 002 的学生姓名和年龄
+$$
+\Pi_{\mathit{SName,Age}}(\mathrm{S})-\Pi_{\mathit{SName,Age}}(\sigma_{C#=002}(\mathrm{S\bowtie SC}))
+$$</p>
+<p>4）  查询 1 号老师所教过的学生中成绩为 90 分以上(包括 90 分)的学生姓名
+$$
+\Pi_{\mathit{SName}}(\sigma_{Teacher="1"}(\mathrm{C\bowtie SC}))
+$$</p>
+<p>5）  查询 LISI 同学没有学过的课程的课程号$$
+\Pi_{\mathit{C#}}(\mathrm{C})-\Pi_{\mathit{C#}}(\sigma_{SName="LISI"}(\mathrm{S\bowtie SC}))
+$$</p>
+<p>2、</p>
+<p>1）检索使用了北京供应商生产的蓝色零件的工程代码。
+$$
+\Pi_{\mathit{J#}}(\sigma_{SCity="Beijing"\ \land \ Color="Blue"}(\mathrm{S\bowtie P\bowtie SPJ}))
+$$</p>
+<p>2）检索供应商与工程所在城市相同的工程代码和工程名。 
+$$
+\Pi_{\mathit{J#,JName}}(\sigma_{SCity=JCity}(\mathrm{S\bowtie J\bowtie SPJ}))
+$$</p>
+<p>3）检索长春的任何工程都不使用的零件代码；
+$$
+\Pi_{P#}(P)-\Pi_{\mathit{P#}}(\sigma_{JCity="Changchun"}(\mathrm{P\bowtie J\bowtie SPJ}))
+$$</p>
+<p>4）检索使用了零件号=“P2”的零件的工程代码及该工程所在城市
+$$
+\Pi_{\mathit{J#,JCity}}(\sigma_{P#="P2"}(\mathrm{P\bowtie J\bowtie SPJ}))
+$$</p>
+<p>5）检索为工程代码=“J5”的工程供应绿色零件的供应商代码和供应商姓名
+$$
+\Pi_{\mathit{S#,SName}}(\sigma_{J#="J5"\ \land \ Color="Green"}(\mathrm{S\bowtie P\bowtie J\bowtie SPJ}))
+$$</p>
+<p></font></p>
+                
+                  
+                
+              
               
                 
 
@@ -316,11 +370,11 @@
       
     </div>
     
-      <script src="/assets/javascripts/application.245445c6.js"></script>
+      <script src="../../assets/javascripts/application.245445c6.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"/"}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="/js/katex.js"></script>
+        <script src="../../js/katex.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js"></script>
       
