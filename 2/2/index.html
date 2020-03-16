@@ -1,0 +1,990 @@
+<!-- Fix MathJax rendering on iOS Safari due to rendering long numbers as phone numbers. -->
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+	
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+	<meta name="format-detection" content="telephone=no">
+
+    
+      
+        <title>2.basic queries - Learning Notes of Data Base Management System</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.01803549.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#03a9f4">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="../../css/basic.css">
+    
+      <link rel="stylesheet" href="../../css/wab.css">
+    
+      <link rel="stylesheet" href="../../css/font.css">
+    
+      <link rel="stylesheet" href="../../css/simpletable.css">
+    
+      <link rel="stylesheet" href="../../css/ktblock.css">
+    
+      <link rel="stylesheet" href="../../css/pseudocode.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-117404761-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#1" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Learning Notes of Data Base Management System" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">import_contacts</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Learning Notes of Data Base Management System
+            </span>
+            <span class="md-header-nav__topic">
+              
+                2.basic queries
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Learning Notes of Data Base Management System" class="md-nav__button md-logo">
+      
+        <i class="md-icon">import_contacts</i>
+      
+    </a>
+    Learning Notes of Data Base Management System
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Preface" class="md-nav__link">
+      Preface
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../color/" title="Color" class="md-nav__link">
+      Color
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      I Relational Model
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        I Relational Model
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../1/1/" title="1.basic concepts" class="md-nav__link">
+      1.basic concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../1/2/" title="2.relational algebra" class="md-nav__link">
+      2.relational algebra
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      II SQL
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        II SQL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../1/" title="1.introduction" class="md-nav__link">
+      1.introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        2.basic queries
+      </label>
+    
+    <a href="./" title="2.basic queries" class="md-nav__link md-nav__link--active">
+      2.basic queries
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1. 查询的基本结构" class="md-nav__link">
+    1. 查询的基本结构
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" title="(1). 基本查询" class="md-nav__link">
+    (1). 基本查询
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" title="(2). 自然连接" class="md-nav__link">
+    (2). 自然连接
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_1" title="2. 附加运算" class="md-nav__link">
+    2. 附加运算
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" title="(1). 更名运算" class="md-nav__link">
+    (1). 更名运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" title="(2). 字符串运算" class="md-nav__link">
+    (2). 字符串运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" title="(3). 元组排序" class="md-nav__link">
+    (3). 元组排序
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" title="3. 集合运算" class="md-nav__link">
+    3. 集合运算
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" title="4. 空值" class="md-nav__link">
+    4. 空值
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" title="① 算术运算" class="md-nav__link">
+    ① 算术运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" title="② 比较运算" class="md-nav__link">
+    ② 比较运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" title="③ 集合运算" class="md-nav__link">
+    ③ 集合运算
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" title="5. 聚集函数" class="md-nav__link">
+    5. 聚集函数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_4" title="(1). 基本聚集" class="md-nav__link">
+    (1). 基本聚集
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_4" title="(2). 分组聚集" class="md-nav__link">
+    (2). 分组聚集
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-mathrmhaving" title="(3). $\mathrm{having}$ 子句" class="md-nav__link">
+    (3). $\mathrm{having}$ 子句
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" title="(4). 空值的聚集" class="md-nav__link">
+    (4). 空值的聚集
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../3/" title="3.nested subqueries and modification" class="md-nav__link">
+      3.nested subqueries and modification
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1. 查询的基本结构" class="md-nav__link">
+    1. 查询的基本结构
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" title="(1). 基本查询" class="md-nav__link">
+    (1). 基本查询
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" title="(2). 自然连接" class="md-nav__link">
+    (2). 自然连接
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_1" title="2. 附加运算" class="md-nav__link">
+    2. 附加运算
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" title="(1). 更名运算" class="md-nav__link">
+    (1). 更名运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" title="(2). 字符串运算" class="md-nav__link">
+    (2). 字符串运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" title="(3). 元组排序" class="md-nav__link">
+    (3). 元组排序
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" title="3. 集合运算" class="md-nav__link">
+    3. 集合运算
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" title="4. 空值" class="md-nav__link">
+    4. 空值
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" title="① 算术运算" class="md-nav__link">
+    ① 算术运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" title="② 比较运算" class="md-nav__link">
+    ② 比较运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" title="③ 集合运算" class="md-nav__link">
+    ③ 集合运算
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" title="5. 聚集函数" class="md-nav__link">
+    5. 聚集函数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_4" title="(1). 基本聚集" class="md-nav__link">
+    (1). 基本聚集
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_4" title="(2). 分组聚集" class="md-nav__link">
+    (2). 分组聚集
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-mathrmhaving" title="(3). $\mathrm{having}$ 子句" class="md-nav__link">
+    (3). $\mathrm{having}$ 子句
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" title="(4). 空值的聚集" class="md-nav__link">
+    (4). 空值的聚集
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>2.basic queries</h1>
+                
+                <p><span class="tnm-g"></span>
+<font face="cycn"></p>
+<h3 id="1">1. 查询的基本结构</h3>
+<blockquote>
+<p>本章使用的例子：<br>
+&emsp;$\small\mathit{instructor}\ (\mathit{\textcolor{black}{ID}, name, dept\_name,salary})$<br>
+&emsp;$\small\mathit{teaches}\ (\mathit{\textcolor{black}{ID,course\_id,sec\_id,semester,year}})$<br>
+&emsp;$\small\mathit{course}\ (\mathit{\textcolor{black}{course\_id},title,dept\_name,credits})$<br>
+&emsp;$\small\mathit{student}\ (\mathit{\textcolor{black}{ID},name,dept\_name,total\_credits})$<br>
+&emsp;$\small\mathit{takes}\ (\mathit{\textcolor{black}{ID,course\_id,sec\_id,semester,year},grade})$<br>
+&emsp;$\small\mathit{section}\ (\mathit{\textcolor{black}{course\_id,sec\_id,semester,year},building,room\_number,timeslot\_id})$<br></p>
+</blockquote>
+<h4 id="1_1">(1). 基本查询</h4>
+<p>一个 SQL 查询需要用到三种子句，其基本格式如右侧所示。
+<pre class="pseudocode" style="float:right;margin-right:160px;border: 1px solid #000000;width:160px;">
+<b>select</b> <i>A</i><sub>1</sub>,<i>A</i><sub>2</sub>,...,<i>A</i><sub>n</sub>,
+<b>from</b> <i>r</i><sub>1</sub>,<i>r</i><sub>2</sub>,...,<i>r</i><sub>m</sub>,
+<b>where</b> <i>P</i>;
+</pre>
+<html> 
+<body>
+<ul style="margin-top:-14px;margin-bottom:10px">
+<li style="margin:1px 26px;">$\mathrm{select}\ \small name$ : 投影操作，可以带有算术表达式</li>
+    <ul style="margin-top:0px;margin-bottom:0px;list-style-type:circle;line-height:30px;">
+    <li style="margin:1px 46px;">$\mathrm{select\ \small distinct}\ \small name$ : 去重</li>
+    <li style="margin:1px 46px;">$\mathrm{select\ all}\ \small name$ : 不去重，也是默认行为</li>
+    <li style="margin:1px 46px;">$\mathrm{select\ *}$ : 所有的列</li>
+    </ul>
+<li style="margin:1px 26px;">$\mathrm{from}\ r$ : 输入的关系</li>
+<li style="margin:1px 26px;">$\mathrm{where}\ \small predicate$: 选择操作，根据谓词选择元组，允许使用连词 $\mathrm{and、or}$ 和 $\mathrm{not}$</li>
+    <ul style="margin-top:0px;margin-bottom:0px;list-style-type:circle;line-height:30px;">
+    <li style="margin:1px 46px;">$\small\mathrm{between\ ...\ and}$ : 用于简化比较</li>
+    <li style="margin:1px 46px;">$\small(v_1,...,v_n)$ : 分量的字典序比较</li>
+    </ul>
+</ul>
+</body>
+</html>
+尽管各子句必须按 $\small\mathrm{select}$-$\small\mathrm{from}$-$\small\mathrm{where}$ 的次序给出，但其逻辑上的顺序为 $\small\mathrm{from}$-$\small\mathrm{where}$-$\small\mathrm{select}$。</p>
+<h4 id="2">(2). 自然连接</h4>
+<p>对于 $\mathrm{from}$ 子句列出的关系，通过 "," 连接产生笛卡尔积，而通过 $\mathrm{natural\ join}$ 进行自然连接。</p>
+<blockquote>
+<p><font face="Consolas"><em>e.g.</em></font><font face="Consolas">1</font> 列出教师的名字以及他们所讲授课程的名称
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">title</span>
+<span class="k">FROM</span> <span class="n">instructor</span> <span class="k">NATURAL</span> <span class="k">JOIN</span> <span class="n">teaches</span><span class="p">,</span> <span class="n">course</span>
+<span class="k">WHERE</span> <span class="n">teaches</span><span class="p">.</span><span class="n">course_id</span> <span class="o">=</span> <span class="n">course</span><span class="p">.</span><span class="n">course_id</span><span class="p">;</span>
+</pre></div>
+注意不要对 $\mathit{course}$ 进行自然连接，属性 $\mathit{dept\_name}$ 是不被期望相等的。</p>
+</blockquote>
+<p>可以显式指定自然连接中期望相等的属性，例 1 中的 $\mathrm{from}$ 子句可重写如下
+<div class="codehilite"><pre><span></span><span class="k">FROM</span> <span class="p">(</span><span class="n">instructor</span> <span class="k">NATURAL</span> <span class="k">JOIN</span> <span class="n">teaches</span><span class="p">)</span> <span class="k">JOIN</span> <span class="n">course</span> <span class="k">USING</span> <span class="p">(</span><span class="n">course_id</span><span class="p">)</span>
+</pre></div></p>
+<h3 id="2_1">2. 附加运算</h3>
+<h4 id="1_2">(1). 更名运算</h4>
+<p>一般情况下，查询结果的属性名会自动从基关系导出。更名运算的意义在于：
+<html> 
+<body>
+<ul style="margin-top:-16px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 26px;">$\mathrm{from}$ 中的关系可能存在同名属性</li>
+<li style="margin:1px 26px;">在 $\mathrm{select}$ 中使用算术表达式会使结果属性无名</li>
+<li style="margin:1px 26px;">有时候需要修改结果的属性名</li>
+</ul>
+</body>
+</html>
+为此，<font size=3>SQL</font> 提供重命名的方法：$\small\mathit{old\_name}$ $\mathrm{as}$ $\small\mathit{new\_name}$，$\mathrm{as}$ 子句可以出现在 $\mathrm{select}$ 和 $\mathrm{from}$ 中。</p>
+<blockquote>
+<p><font face="Consolas"><em>e.g.</em></font><font face="Consolas">2</font> 重命名属性
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span> <span class="k">as</span> <span class="n">instructor_name</span> <span class="k">FROM</span> <span class="n">instructor</span><span class="p">;</span>
+</pre></div>
+<font face="Consolas"><em>e.g.</em></font><font face="Consolas">3</font> 重命名关系，简化名称
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">T</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">S</span><span class="p">.</span><span class="n">course_id</span>
+<span class="k">FROM</span> <span class="n">instructor</span> <span class="k">as</span> <span class="n">T</span><span class="p">,</span> <span class="n">teaches</span> <span class="k">as</span> <span class="n">S</span>
+<span class="k">where</span> <span class="n">T</span><span class="p">.</span><span class="n">ID</span> <span class="o">=</span> <span class="n">S</span><span class="p">.</span><span class="n">ID</span><span class="p">;</span>
+</pre></div></p>
+</blockquote>
+<p>重命名另一个应用是比较同一个关系中的元组。</p>
+<blockquote>
+<p><font face="Consolas"><em>e.g.</em></font><font face="Consolas">4</font> 比生物系某一个教师工资高的所有教师的姓名
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">T</span><span class="p">.</span><span class="n">name</span>
+<span class="k">FROM</span> <span class="n">instructor</span> <span class="k">as</span> <span class="n">T</span><span class="p">,</span> <span class="n">instructor</span> <span class="k">as</span> <span class="n">S</span>
+<span class="k">WHERE</span> <span class="n">T</span><span class="p">.</span><span class="n">salary</span> <span class="o">&gt;</span> <span class="n">S</span><span class="p">.</span><span class="n">salary</span> <span class="k">AND</span> <span class="n">S</span><span class="p">.</span><span class="n">dept_name</span> <span class="o">=</span> <span class="s1">&#39;Biology&#39;</span>
+</pre></div></p>
+</blockquote>
+<h4 id="2_2">(2). 字符串运算</h4>
+<p><font size=3>SQL</font> 使用单引号标示字符串，通过双单引号转义。</p>
+<p><html> 
+<body>
+<ul style="margin-top:-14px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 26px;">相等: 在 <font size=3>SQL</font> 标准中，相等是大小写敏感的，实际的数据库通常需要自己定义相等行为</li>
+<li style="margin:1px 26px;">字符串函数: <font size=3>SQL</font> 允许字符串上的函数，具体的函数需要查询相应数据库的手册</li>
+</ul>
+</body>
+</html></p>
+<p><font size=3>SQL</font> 支持字符串的模式匹配。
+<html> 
+<body>
+<ul style="margin-top:-14px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 26px;">$\mathrm{like}$ 通过两个字符描述模式，允许使用 $\mathrm{not}$</li>
+    <ul style="margin-top:0px;margin-bottom:0px;list-style-type:circle;line-height:30px;">
+    <li style="margin:1px 46px;">$\%$ : 匹配任意子串，例如 '$\small\%\mathrm{Comp}\%$'</li>
+    <li style="margin:1px 46px;">$\_$ : 匹配任意一个字符，例如 '$\small\mathtt{\_\_\_}\%$' 匹配至少含三个字符的字符串</li>
+    <li style="margin:1px 46px;">$\mathrm{escape}$ : 用于自定义转义字符，例如 $\small\mathrm{like}$ '$\small\mathrm{\mathtt{\backslash\backslash} ab\mathtt{\backslash} \% cd \%}$' $\small\mathrm{escape}$ '$\small\mathtt{\backslash}$' 匹配 "$\small\mathtt{\backslash}\mathrm{ab\%cd}$"</li>
+    </ul>
+<li style="margin:1px 26px;">$\mathrm{similar\ to}$: 在 <font size=3>SQL:1999</font> 中引入，语法类似于 <font size=3>UNIX</font> 的正则表达式</li>
+</ul>
+</body>
+</html></p>
+<h4 id="3">(3). 元组排序</h4>
+<p>查询结果可以通过 $\mathrm{order\ by}$ 子句排列显示次序，默认使用升序，也可以通过 $\mathrm{asc}$ 和 $\mathrm{desc}$ 显式指明。</p>
+<blockquote>
+<p><font face="Consolas"><em>e.g.</em></font><font face="Consolas">5</font> 按工资降序输出教师关系，若工资相同，按姓名升序排列
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">instructor</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">salary</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">name</span> <span class="k">ASC</span>
+</pre></div></p>
+</blockquote>
+<h3 id="3_1">3. 集合运算</h3>
+<p>&emsp;并、交、差分别通过关键字 $\mathrm{union、intersect}$ 和 $\mathrm{except}$ 实现。集合运算是自动去重的，如果需要保留重复，需要在相应关键字后添加 $\mathrm{all}$。</p>
+<h3 id="4">4. 空值</h3>
+<p>空值给算术运算、比较运算和集合运算带来问题。<br></p>
+<h4 id="1_3">① 算术运算</h4>
+<p>如果算术表达式任一输入为空，那么运算结果为空。</p>
+<h4 id="2_3">② 比较运算</h4>
+<p>&emsp;<font size=3>SQL</font> 将涉及空值的任何比较运算 (例如 $\small 1&lt;\mathit{null}$ ) 的结果视为 $\mathit{unknown}$，它是建立在 $\mathit{true}$ 和 $\mathit{false}$ 外的第三个逻辑值。而对于逻辑运算：</p>
+<table class="simp" style="margin-left:110px;">
+<tr>
+    <td class="corner">&emsp;</td>
+    <td class="firstrow">$\small\mathit{true}$</td>
+    <td class="firstrow">$\small\mathit{false}$</td>
+    <td class="firstrow">$\small\mathit{unknown}$</td>
+</tr>
+<tr>
+    <td class="firstcol">$\small\mathrm{and}$</td>
+    <td class="general">$\small\mathit{unknown}$</td>
+    <td class="general">$\small\mathit{false}$</td>
+    <td class="general">$\small\mathit{unknown}$</td>
+</tr>
+<tr>
+    <td class="firstcol">$\small\mathrm{or}$</td>
+    <td class="general">$\small\mathit{true}$</td>
+    <td class="general">$\small\mathit{unknown}$</td>
+    <td class="general">$\small\mathit{unknown}$</td>
+</tr>
+<tr>
+    <td class="firstcol">$\small\mathrm{not}$</td>
+    <td class="general">$-$</td>
+    <td class="general">$-$</td>
+    <td class="general">$\small\mathit{unknown}$</td>
+</tr>
+</table>
+
+<p>&emsp;我们可以通过关键字 $\mathrm{null}$ 测试空值，例如 $\small\mathrm{where}\ salary\ \mathrm{is\ not\ null}$，某些 <font size=3>SQL</font> 允许我们使用 $\small\mathrm{is\ unknown}$。</p>
+<h4 id="3_2">③ 集合运算</h4>
+<p>&emsp;当使用 $\mathrm{select\ distinct}$ 或集合运算判断重复元组时，如果两个元组的某个分量都为 $\mathit{null}$，那么认为这两个分量相等，而不是 $\mathit{unknown}$。</p>
+<h3 id="5">5. 聚集函数</h3>
+<h4 id="1_4">(1). 基本聚集</h4>
+<p>聚集函数是以一个集合作为输入，返回单个值的函数。<font size=3>SQL</font> 提供了 5 个固有聚集函数：
+<html> 
+<body>
+<ul style="margin-top:-17px;margin-bottom:0px;line-height:30px;">
+<li style="margin:1px 26px;">$\small\mathrm{count([all]\ *)}$ : 统计元组个数，不允许使用 $\small\mathrm{distinct}$</li>
+<li style="margin:1px 26px;">$\small\mathrm{count([distinct\ |\ all]\ \mathit{attr})}$ : 统计一列中值的个数</li>
+<li style="margin:1px 26px;">$\small\mathrm{sum([distinct\ |\ all]\ \mathit{attr})}$ : 计算一列值的总和</li>
+<li style="margin:1px 26px;">$\small\mathrm{avg([distinct\ |\ all]\ \mathit{attr})}$ : 计算一列值的平均值</li>
+<li style="margin:1px 26px;">$\small\mathrm{max([distinct\ |\ all]\ \mathit{attr})}$、$\small\mathrm{min([distinct\ |\ all]\ \mathit{attr})}$ : 计算一列值的最大、最小值</li>
+</ul>
+</body>
+</html>
+其中 $\small\mathrm{sum、avg}$ 只能作用于数字集。</p>
+<h4 id="2_4">(2). 分组聚集</h4>
+<p>有时候我们也希望聚集函数作用于一组元组集合上，然后分别聚集并构造表，此时需要使用 $\mathrm{group\ by}$。</p>
+<blockquote>
+<p><font face="Consolas"><em>e.g.</em></font><font face="Consolas">6</font> 查询每个系在 2010 年春季学期讲授一门课程的教师人数
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">dept_name</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="n">ID</span><span class="p">)</span> <span class="k">as</span> <span class="n">instr_count</span>
+<span class="k">FROM</span> <span class="n">instructor</span> <span class="k">NATURAL</span> <span class="k">JOIN</span> <span class="n">teaches</span>
+<span class="k">WHERE</span> <span class="n">semester</span> <span class="o">=</span> <span class="s1">&#39;Spring&#39;</span> <span class="k">AND</span> <span class="k">year</span> <span class="o">=</span> <span class="mi">2010</span>
+<span class="k">group</span> <span class="k">by</span> <span class="n">dept_name</span><span class="p">;</span>
+</pre></div></p>
+</blockquote>
+<p>如果一个属性没有出现在 $\mathrm{group\ by}$ 中且出现在了 $\mathrm{select}$ 中，那么它一定出现在聚集函数内部，否则这就是一条错误的查询。</p>
+<h4 id="3-mathrmhaving">(3). $\mathrm{having}$ 子句</h4>
+<p>&emsp;有时候，我们需要直接对分组限定条件，此时需要使用 $\mathrm{having}$ 子句。由于 $\mathrm{having}$ 子句中的谓词在分组生效后才起作用，因此可以使用聚集函数。<br>
+&emsp;包含聚集、$\small\mathrm{group\ by}$ 和 $\small\mathrm{having}$ 的查询可通过下面的操作序列定义：
+<html> 
+<body>
+<ul style="margin-top:-17px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 30px;">先根据 $\small\mathrm{from}$ 计算关系，并将 $\small\mathrm{where}$ 的谓词应用于此关系</li>
+<li style="margin:1px 30px;">根据 $\small\mathrm{group\ by}$ 指定的属性，把上一步的关系分组</li>
+<li style="margin:1px 30px;">根据 $\small\mathrm{having}$ 子句的条件过滤上一步的分组</li>
+<li style="margin:1px 30px;">最后 $\small\mathrm{select}$ 根据剩下的分组产生结果</li>
+</ul>
+</body>
+</html></p>
+<blockquote>
+<p><font face="Consolas"><em>e.g.</em></font><font face="Consolas">7</font> 对于在 2009 年每个讲授的课程段，如果该课程段至少有两名学生选课，查询选修该课程段的所有学生的总学分的平均值
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">course_id</span><span class="p">,</span> <span class="n">sec_id</span><span class="p">,</span> <span class="n">semester</span><span class="p">,</span> <span class="k">year</span><span class="p">,</span> <span class="k">AVG</span><span class="p">(</span><span class="n">total_credits</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">student</span> <span class="k">NATURAL</span> <span class="k">JOIN</span> <span class="n">takes</span>
+<span class="k">WHERE</span> <span class="k">year</span> <span class="o">=</span> <span class="mi">2009</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">course_id</span><span class="p">,</span> <span class="n">sec_id</span><span class="p">,</span> <span class="n">semester</span><span class="p">,</span> <span class="k">year</span>
+<span class="k">HAVING</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">ID</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">;</span>
+</pre></div></p>
+</blockquote>
+<h4 id="4_1">(4). 空值的聚集</h4>
+<p>除了 $\mathrm{count(*)}$ 以外的所有聚集函数都忽略输入集合中的空值。<br>
+$\mathrm{count}$ 空集的结果为 0，其余的聚集函数对于空集的结果为空值。</p>
+<p></font></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../1/" title="1.introduction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                1.introduction
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../3/" title="3.nested subqueries and modification" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                3.nested subqueries and modification
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="../../js/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

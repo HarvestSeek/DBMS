@@ -1,0 +1,626 @@
+<!-- Fix MathJax rendering on iOS Safari due to rendering long numbers as phone numbers. -->
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+	
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+	<meta name="format-detection" content="telephone=no">
+
+    
+      
+        <title>1.introduction - Learning Notes of Data Base Management System</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.01803549.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#03a9f4">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="../../css/basic.css">
+    
+      <link rel="stylesheet" href="../../css/wab.css">
+    
+      <link rel="stylesheet" href="../../css/font.css">
+    
+      <link rel="stylesheet" href="../../css/simpletable.css">
+    
+      <link rel="stylesheet" href="../../css/ktblock.css">
+    
+      <link rel="stylesheet" href="../../css/pseudocode.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-117404761-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#1-sql" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Learning Notes of Data Base Management System" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">import_contacts</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Learning Notes of Data Base Management System
+            </span>
+            <span class="md-header-nav__topic">
+              
+                1.introduction
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Learning Notes of Data Base Management System" class="md-nav__button md-logo">
+      
+        <i class="md-icon">import_contacts</i>
+      
+    </a>
+    Learning Notes of Data Base Management System
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Preface" class="md-nav__link">
+      Preface
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../color/" title="Color" class="md-nav__link">
+      Color
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      I Relational Model
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        I Relational Model
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../1/1/" title="1.basic concepts" class="md-nav__link">
+      1.basic concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../1/2/" title="2.relational algebra" class="md-nav__link">
+      2.relational algebra
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      II SQL
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        II SQL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        1.introduction
+      </label>
+    
+    <a href="./" title="1.introduction" class="md-nav__link md-nav__link--active">
+      1.introduction
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-sql" title="1. SQL 概述" class="md-nav__link">
+    1. SQL 概述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-sql" title="2. SQL 数据定义" class="md-nav__link">
+    2. SQL 数据定义
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" title="(1). 基本类型" class="md-nav__link">
+    (1). 基本类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" title="(2). 基本模式定义" class="md-nav__link">
+    (2). 基本模式定义
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2/" title="2.basic queries" class="md-nav__link">
+      2.basic queries
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../3/" title="3.nested subqueries and modification" class="md-nav__link">
+      3.nested subqueries and modification
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-sql" title="1. SQL 概述" class="md-nav__link">
+    1. SQL 概述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-sql" title="2. SQL 数据定义" class="md-nav__link">
+    2. SQL 数据定义
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" title="(1). 基本类型" class="md-nav__link">
+    (1). 基本类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" title="(2). 基本模式定义" class="md-nav__link">
+    (2). 基本模式定义
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>1.introduction</h1>
+                
+                <p><span class="tnm-g"></span>
+<span class="cons-g"></span>
+<font face="cycn"></p>
+<h3 id="1-sql">1. SQL 概述</h3>
+<p>SQL 最早的版本由 IBM 开发，最初被叫做 Sequel，发展至今已更名为 SQL，且确立了作为标准关系数据库语言的低位。SQL 语言有以下几个部分：
+<html> 
+<body>
+<ul style="margin-top:-14px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 26px;">数据定义语言 (<font size=3>DDL</font>): 提供定义关系模式、删除关系以及修改关系模式的命令；</li>
+<li style="margin:1px 26px;">数据操纵语言 (<font size=3>Data-Manipulation Language, DML</font>): 提供从数据库中查询信息、插入元祖、删除或修改元组的能力；</li>
+<li style="margin:1px 26px;">完整性 (<font size=3>integrity</font>): SQL DDL 包括定义完整性的命令；</li>
+<li style="margin:1px 26px;">视图定义 (<font size=3>view definition</font>): SQL DDL 包括定义视图的命令；</li>
+<li style="margin:1px 26px;">事务控制 (<font size=3>transaction control</font>): SQL 包括定义事务开始或结束的命令；</li>
+<li style="margin:1px 26px;">嵌入式 SQL 和 动态 SQL (<font size=3>embedded and dynamic</font>): 定义 SQL 语句如何嵌入到通用编程语言；</li>
+<li style="margin:1px 26px;">授权: SQL DDL 包括定义对关系和视图的访问权限的命令。</li>
+</ul>
+</body>
+</html></p>
+<h3 id="2-sql">2. SQL 数据定义</h3>
+<h4 id="1">(1). 基本类型</h4>
+<p><html> 
+<body>
+<ul style="margin-top:-10px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 26px;">$\mathrm{char}(n)$: 定长字符串，等价于 $\mathrm{character}$，不足部分以空格补全，建议使用 $\mathrm{varchar}$</li>
+<li style="margin:1px 26px;">$\mathrm{varchar}(n)$: 可变长度字符串，$n$ 为用户指定的最大长度，等价于 $\mathrm{character\ varying}$</li>
+<li style="margin:1px 26px;">$\mathrm{int}$: 整数类型，等价于 $\mathrm{interger}$</li>
+<li style="margin:1px 26px;">$\mathrm{smallint}$: 小整数类型</li>
+<li style="margin:1px 26px;">$\mathrm{numeric}(p, d)$: 定点数，这个数有 $p$ 位数字 (包括符号位)，其中 $d$ 位在小数点右边</li>
+<li style="margin:1px 26px;">$\mathrm{real, precision}$: 浮点数与双精度浮点数</li>
+<li style="margin:1px 26px;">$\mathrm{float}(n)$: 精度至少为 $n$ 的浮点数</li>
+</ul>
+</body>
+</html></p>
+<h4 id="2">(2). 基本模式定义</h4>
+<pre class="pseudocode" style="float:right;margin-top:-10px;border: 1px solid #000000;">
+<b>create table</b> <i>r</i> (
+    A<sub>1</sub> D<sub>1</sub>,
+    ...
+    A<sub>n</sub> D<sub>n</sub>,
+    &lt;integrity constraint<sub>1</sub>&gt;,
+    ...
+    &lt;integrity constraint<sub>n</sub>&gt;,
+);
+</pre>
+
+<p>$\mathrm{create\ table}$ 命令的通用格式如右侧所示。<br>
+一些基本的修改操作：<br>
+<html> 
+<body>
+<ul style="margin-top:-19px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 26px;">$\mathrm{insert\ into}\ r\ \mathrm{values}\ (v_1,...)$ : 将元组加入到关系中，值的顺序遵循关系模式中属性的顺序</li>
+<li style="margin:1px 26px;">$\mathrm{delete\ from}\ r$ : 从关系中删除所有元组</li>
+<li style="margin:1px 26px;">$\mathrm{drop\ table}\ r$ : 删除一个关系及其所有信息</li>
+<li style="margin:1px 26px;">$\mathrm{alter\ table}\ r\ \mathrm{add}\ A\ D$ : 为已有关系添加属性</li>
+<li style="margin:1px 26px;">$\mathrm{alter\ table}\ r\ \mathrm{drop}\ A$ : 为已有关系删除属性</li>
+</ul>
+</body>
+</html></p>
+<p></font> </p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../1/2/" title="2.relational algebra" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                2.relational algebra
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../2/" title="2.basic queries" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                2.basic queries
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="../../js/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
