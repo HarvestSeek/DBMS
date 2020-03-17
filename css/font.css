@@ -27,6 +27,18 @@ span.cons-g {
 	font-style: normal;
 } 
 
+@font-face {
+	font-family: 'cycn-eng';
+	src: url('fonts/sourcehan/siyuansub-eng.eot'), /* IE9*/
+		 url('fonts/sourcehan/siyuansub-eng.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		 url('fonts/sourcehan/siyuansub-eng.woff2') format('woff2'),
+		 url('fonts/sourcehan/siyuansub-eng.woff') format('woff'), /* chrome、firefox */
+		 url('fonts/sourcehan/siyuansub-eng.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+		 url('fonts/sourcehan/siyuansub-eng.svg') format('svg'); /* iOS 4.1- */
+	font-weight: normal;
+	font-style: normal;
+}
+
 /* kaiti: weibei */
 
 @font-face {

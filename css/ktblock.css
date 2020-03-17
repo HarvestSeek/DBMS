@@ -28,3 +28,17 @@ blockquote.ktb1 {
 	border-top: 2px solid #f0ffff;
 	border-bottom: 2px solid #f0ffff;
 }
+
+.generalcy {
+	font-family: cycn;
+}
+
+.generalcy cy {
+	font-family: cycn-eng;
+	font-size: 94%;
+}
+
+.generalcy cy2 {
+	font-family: cycn-eng;
+	font-size: 93%;
+}
