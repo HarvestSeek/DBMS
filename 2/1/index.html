@@ -372,6 +372,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#3" title="3. 数据库的修改" class="md-nav__link">
+    3. 数据库的修改
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" title="(1). 删除" class="md-nav__link">
+    (1). 删除
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" title="(2). 插入" class="md-nav__link">
+    (2). 插入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" title="(3). 更新" class="md-nav__link">
+    (3). 更新
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -403,6 +437,42 @@
   <li class="md-nav__item">
     <a href="../3/" title="3.nested subqueries" class="md-nav__link">
       3.nested subqueries
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      III Database Design
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        III Database Design
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../3/1/" title="1. E-R model" class="md-nav__link">
+      1. E-R model
     </a>
   </li>
 
@@ -464,6 +534,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#3" title="3. 数据库的修改" class="md-nav__link">
+    3. 数据库的修改
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" title="(1). 删除" class="md-nav__link">
+    (1). 删除
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" title="(2). 插入" class="md-nav__link">
+    (2). 插入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" title="(3). 更新" class="md-nav__link">
+    (3). 更新
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -485,7 +589,7 @@
                 
                 <p><span class="tnm-g"></span>
 <span class="cons-g"></span>
-<font face="cycn"></p>
+<font class="generalcy"></p>
 <h3 id="1-sql">1. SQL 概述</h3>
 <p>SQL 最早的版本由 IBM 开发，最初被叫做 Sequel，发展至今已更名为 SQL，且确立了作为标准关系数据库语言的低位。SQL 语言有以下几个部分：
 <html> 
@@ -508,7 +612,7 @@
 <ul style="margin-top:-10px;margin-bottom:10px;line-height:30px;">
 <li style="margin:1px 26px;">$\mathrm{char}(n)$: 定长字符串，等价于 $\mathrm{character}$，不足部分以空格补全，建议使用 $\mathrm{varchar}$</li>
 <li style="margin:1px 26px;">$\mathrm{varchar}(n)$: 可变长度字符串，$n$ 为用户指定的最大长度，等价于 $\mathrm{character\ varying}$</li>
-<li style="margin:1px 26px;">$\mathrm{int}$: 整数类型，等价于 $\mathrm{interger}$</li>
+<li style="margin:1px 26px;">$\mathrm{int}$: 整数类型，等价于 $\mathrm{integer}$</li>
 <li style="margin:1px 26px;">$\mathrm{smallint}$: 小整数类型</li>
 <li style="margin:1px 26px;">$\mathrm{numeric}(p, d)$: 定点数，这个数有 $p$ 位数字 (包括符号位)，其中 $d$ 位在小数点右边</li>
 <li style="margin:1px 26px;">$\mathrm{real, precision}$: 浮点数与双精度浮点数</li>
@@ -533,14 +637,57 @@
 <html> 
 <body>
 <ul style="margin-top:-19px;margin-bottom:10px;line-height:30px;">
-<li style="margin:1px 26px;">$\mathrm{insert\ into}\ r\ \mathrm{values}\ (v_1,...)$ : 将元组加入到关系中，值的顺序遵循关系模式中属性的顺序</li>
-<li style="margin:1px 26px;">$\mathrm{delete\ from}\ r$ : 从关系中删除所有元组</li>
-<li style="margin:1px 26px;">$\mathrm{drop\ table}\ r$ : 删除一个关系及其所有信息</li>
-<li style="margin:1px 26px;">$\mathrm{alter\ table}\ r\ \mathrm{add}\ A\ D$ : 为已有关系添加属性</li>
-<li style="margin:1px 26px;">$\mathrm{alter\ table}\ r\ \mathrm{drop}\ A$ : 为已有关系删除属性</li>
+<li style="margin:1px 26px;">$\small\mathrm{insert\ into}\ r\ \mathrm{values}\ (v_1,...)$ : 将元组加入到关系中，值的顺序遵循关系模式中属性的顺序</li>
+<li style="margin:1px 26px;">$\small\mathrm{delete\ from}\ r$ : 从关系中删除所有元组</li>
+<li style="margin:1px 26px;">$\small\mathrm{drop\ table}\ r$ : 删除一个关系及其所有信息</li>
+<li style="margin:1px 26px;">$\small\mathrm{alter\ table}\ r\ \mathrm{add}\ A\ D$ : 为已有关系添加属性</li>
+<li style="margin:1px 26px;">$\small\mathrm{alter\ table}\ r\ \mathrm{drop}\ A$ : 为已有关系删除属性</li>
 </ul>
 </body>
 </html></p>
+<h3 id="3">3. 数据库的修改</h3>
+<h4 id="1_1">(1). 删除</h4>
+<p>删除操作以元组为单位，其格式为 $\small\mathrm{delete\ from}\ r\ \mathrm{where}\ P;$。若省略 $\small\mathrm{where}$，则删除所有元组。</p>
+<blockquote>
+<p><csg><em>e.g.</em></csg> 从 $\small\mathit{instructor}$ 中删除 位于$\small\mathit{Waston}$ 大楼工作 的教师元组。
+<div class="codehilite"><pre><span></span><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">instructor</span>
+<span class="k">WHERE</span> <span class="n">dept_name</span> <span class="k">IN</span> <span class="p">(</span>
+    <span class="k">SELECT</span> <span class="n">dept_name</span>
+    <span class="k">FROM</span> <span class="n">department</span>
+    <span class="k">WHERE</span> <span class="n">building</span> <span class="o">=</span> <span class="s1">&#39;Waston&#39;</span>
+<span class="p">);</span>
+</pre></div></p>
+</blockquote>
+<h4 id="2_1">(2). 插入</h4>
+<p>插入一个元组：<br>
+&ensp;$\small\mathrm{insert\ into}\ \mathit{course}\ \mathrm{values(\mathtt{'}CS\mathtt{'},\mathtt{'}DB\mathtt{'},\mathtt{'}Comp.Sci.\mathtt{'},4)};$<br>
+忽略顺序，指定属性：<br>
+&ensp;$\small\mathrm{insert\ into}\ \mathit{course}\ (\mathit{course\_id,title,dept\_name,credits})\ \mathrm{values(\mathtt{'}DB\mathtt{'},\mathtt{'}CS\mathtt{'},4,\mathtt{'}Comp.Sci.\mathtt{'})};$<br>
+更通常的情况是，在查询结果的基础上插入元组：<br></p>
+<blockquote>
+<p><csg><em>e.g.</em></csg> 让音乐系每个修满 144 分的学生称为音乐系的教师，工资为 18000 美元
+<div class="codehilite"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">instructor</span>
+    <span class="k">SELECT</span> <span class="n">ID</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">dept_name</span><span class="p">,</span><span class="mi">18000</span>
+    <span class="k">FROM</span> <span class="n">student</span>
+    <span class="k">WHERE</span> <span class="n">dept_name</span> <span class="o">=</span> <span class="s1">&#39;Music&#39;</span> <span class="k">AND</span> <span class="n">total_credit</span> <span class="o">&gt;</span> <span class="mi">144</span><span class="p">;</span>
+</pre></div></p>
+</blockquote>
+<p>$\small\mathrm{insert\ into}\ ...\ \mathrm{select}\ ...$ 的执行顺序是先查询再插入。</p>
+<h4 id="3_1">(3). 更新</h4>
+<p>更新语句的格式为 $\small\mathrm{update}\ r\ \mathrm{set}\ ...\ \mathrm{where}\ ...$。</p>
+<blockquote>
+<p><csg><em>e.g.</em></csg> 给工资超过 10000 美元的教师涨 3% 工资，其余涨 5%<br>
+可用两个 $\small\mathrm{update\ ...\ when}$ 语句完成，但两条语句的顺序很关键。更好的办法是使用 $\mathrm{case}$:
+<div class="codehilite"><pre><span></span><span class="k">UPDATE</span> <span class="n">instructor</span>
+<span class="k">SET</span> <span class="n">salary</span> <span class="o">=</span> 
+    <span class="k">CASE</span>
+        <span class="k">WHEN</span> <span class="n">salary</span> <span class="o">&lt;=</span> <span class="mi">10000</span> <span class="k">THEN</span> <span class="n">salary</span> <span class="o">*</span> <span class="mi">1</span><span class="p">.</span><span class="mi">05</span>
+        <span class="k">ELSE</span> <span class="n">salary</span> <span class="o">*</span> <span class="mi">1</span><span class="p">.</span><span class="mi">03</span>
+    <span class="k">END</span>
+<span class="c1">-- WHEN salary &lt;= 10000</span>
+</pre></div></p>
+</blockquote>
+<p>标量子查询在更新语句中也非常有用。</p>
 <p></font> </p>
                 
                   

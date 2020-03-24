@@ -515,6 +515,42 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      III Database Design
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        III Database Design
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../3/1/" title="1. E-R model" class="md-nav__link">
+      1. E-R model
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -767,7 +803,7 @@ $$
 \end{aligned}
 $$</p>
 <h4 id="4_1">(4). 外连接</h4>
-<p>&emsp;外连接 (<font face="Times New Roman">outer-join</font>) 运算是连接运算的扩展。如果 $\small \mathit{intructor}$ 中有些教师不教课，那么 $\small \mathit{instructor}\bowtie \mathit{teaches}$ 中就会无法查询到这些教师的信息。</br>
+<p>&emsp;外连接 (<font face="Times New Roman">outer-join</font>) 运算是连接运算的扩展。如果 $\small \mathit{instructor}$ 中有些教师不教课，那么 $\small \mathit{instructor}\bowtie \mathit{teaches}$ 中就会无法查询到这些教师的信息。</br>
 &emsp;左外连接 (⟕) 把左侧关系中所有与右侧关系中任一元组不匹配的元组的右侧属性部分用空值填充，并添加到自然连接的结果中；右外连接 (⟖) 与此对称，全外连接 (⟗) 既做左外连接又做右外连接。左外连接可用基本关系代数表示为：
 $$r⟕s=(r\Join s)\cup(r-\Pi_R(r\Join s))\times \lbrace(\mathit{null,\ ...\ ,null\ })\rbrace$$
 其中常数关系 $\lbrace(\mathit{null,\ ... \ ,null\ })\rbrace$ 的模式是 $\small S-R$。</br>
