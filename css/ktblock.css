@@ -60,3 +60,8 @@ blockquote.ktb1 {
 .generalcy h52 {
 	font-size: 120%;
 }
+
+.waveLine {
+	text-decoration-line: underline; 
+	text-decoration-style: wavy;
+}

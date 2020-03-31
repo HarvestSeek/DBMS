@@ -344,6 +344,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../2/4/" title="4.intermediate" class="md-nav__link">
+      4.intermediate
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -723,11 +735,11 @@
 <blockquote>
 <p><cs><em>e.g.</em></cs> 考虑关系模式 $\small R(A,B,C,D,E)$，设 $\small F=\lbrace A\to B,BC\to D\rbrace$。设 $\small R$ 分解成 $\small R_1(A,B)$ 和 $\small R_2(A,C,D,E)$，尽管 $\small F$ 中没有一个只包含来自 $\small (A,C,D,E)$ 的式子，$\small R_2$ 也不满足 <cy>BCNF</cy>，可通过 $\small F^+$ 中的 $\small AC\to D$ 判断。</p>
 </blockquote>
-<p>为了检查 $\small R$ 分解后的关系 $\small R_i$ 是否属于 <cy>BCNF</cy>，应用如下判定：
+<p>下面这种方法有时会比计算 $\small F^+$ 上的所有函数依赖简单。为检查 $\small R$ 分解后的关系 $\small R_i$ 是否属于 <cy>BCNF</cy>，应用如下判定：
 <ul style="margin-top:-16px;margin-bottom:10px;line-height:30px;">
-<li style="margin:1px 26px;">对 $\small R_i$ 中每个子集 $\small\alpha$，确保 $\small\alpha^+$ 要么不包含 $\small R_i-\alpha$ 的任何属性，要么包含 $\small R_i$ 的所有属性。</li>
+<li style="margin:1px 26px;">对 $\small R_i$ 中每个子集 $\small\alpha$，确保 $\small\alpha^+$ 要么不包含 $\small R_i-\alpha$ 的任何属性，要么包含 $\small R_i$ 的所有属性</li>
 </ul>
-如果 $R_i$ 上有某个 $\small\alpha$ 违反此条件，可以证明 $\small\alpha\to(\alpha^+-\alpha)\cap R_i$ 出现在 $\small F^+$ 中，此函数依赖说明 $\small R_i$ 违反 <cy>BCNF</cy>。这种方法有时会比计算 $\small F^+$ 上的所有函数依赖简单。</p>
+如果 $R_i$ 上有某个 $\small\alpha$ 违反此条件，可以证明 $\small\alpha\to(\alpha^+-\alpha)\cap R_i$ 出现在 $\small F^+$ 中，此函数依赖说明 $\small R_i$ 违反 <cy>BCNF</cy>。</p>
 <p></font></p>
                 
                   

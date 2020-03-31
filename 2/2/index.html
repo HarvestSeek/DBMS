@@ -372,6 +372,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#3" title="(3). 外连接" class="md-nav__link">
+    (3). 外连接
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -400,7 +407,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3" title="(3). 元组排序" class="md-nav__link">
+  <a href="#3_1" title="(3). 元组排序" class="md-nav__link">
     (3). 元组排序
   </a>
   
@@ -412,7 +419,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3_1" title="3. 集合运算" class="md-nav__link">
+  <a href="#3_2" title="3. 集合运算" class="md-nav__link">
     3. 集合运算
   </a>
   
@@ -441,7 +448,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3_2" title="③ 集合运算" class="md-nav__link">
+  <a href="#3_3" title="③ 集合运算" class="md-nav__link">
     ③ 集合运算
   </a>
   
@@ -512,6 +519,18 @@
   <li class="md-nav__item">
     <a href="../3/" title="3.nested subqueries" class="md-nav__link">
       3.nested subqueries
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../4/" title="4.intermediate" class="md-nav__link">
+      4.intermediate
     </a>
   </li>
 
@@ -609,6 +628,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#3" title="(3). 外连接" class="md-nav__link">
+    (3). 外连接
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -637,7 +663,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3" title="(3). 元组排序" class="md-nav__link">
+  <a href="#3_1" title="(3). 元组排序" class="md-nav__link">
     (3). 元组排序
   </a>
   
@@ -649,7 +675,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3_1" title="3. 集合运算" class="md-nav__link">
+  <a href="#3_2" title="3. 集合运算" class="md-nav__link">
     3. 集合运算
   </a>
   
@@ -678,7 +704,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3_2" title="③ 集合运算" class="md-nav__link">
+  <a href="#3_3" title="③ 集合运算" class="md-nav__link">
     ③ 集合运算
   </a>
   
@@ -750,7 +776,7 @@
                   <h1>2.basic queries</h1>
                 
                 <p><span class="tnm-g"></span>
-<font face="cycn"></p>
+<font class="generalcy"></p>
 <h3 id="1">1. 查询的基本结构</h3>
 <blockquote>
 <p>本章使用的例子：<br>
@@ -771,66 +797,97 @@
 <html> 
 <body>
 <ul style="margin-top:-14px;margin-bottom:10px">
-<li style="margin:1px 26px;">$\mathrm{select}\ \small name$ : 投影操作，可以带有算术表达式</li>
+<li style="margin:1px 26px;">$\small\mathrm{select}\ \ \small name$ : 投影操作，可以带有算术表达式</li>
     <ul style="margin-top:0px;margin-bottom:0px;list-style-type:circle;line-height:30px;">
-    <li style="margin:1px 46px;">$\mathrm{select\ \small distinct}\ \small name$ : 去重</li>
-    <li style="margin:1px 46px;">$\mathrm{select\ all}\ \small name$ : 不去重，也是默认行为</li>
-    <li style="margin:1px 46px;">$\mathrm{select\ *}$ : 所有的列</li>
+    <li style="margin:1px 46px;">$\small\mathrm{select\ distinct}\ \small name$ : 去重</li>
+    <li style="margin:1px 46px;">$\small\mathrm{select\ all}\ name$ : 不去重，也是默认行为</li>
+    <li style="margin:1px 46px;">$\small\mathrm{select\ *}$ : 所有的列</li>
     </ul>
-<li style="margin:1px 26px;">$\mathrm{from}\ r$ : 输入的关系</li>
-<li style="margin:1px 26px;">$\mathrm{where}\ \small predicate$: 选择操作，根据谓词选择元组，允许使用连词 $\mathrm{and、or}$ 和 $\mathrm{not}$</li>
+<li style="margin:1px 26px;">$\small\mathrm{from}\ \ r$ : 输入的关系</li>
+<li style="margin:1px 26px;">$\small\mathrm{where}\ \ predicate$ : 选择操作，根据谓词选择元组，允许使用连词 $\mathrm{and、or}$ 和 $\mathrm{not}$</li>
     <ul style="margin-top:0px;margin-bottom:0px;list-style-type:circle;line-height:30px;">
     <li style="margin:1px 46px;">$\small\mathrm{between\ ...\ and}$ : 用于简化比较，例如 $\small\mathrm{where\ \mathit{salary}\ between\ 10000\ and\ 90000}$</li>
-    <li style="margin:1px 46px;">$\small(v_1,...,v_n)$ : 分量的字典序比较，例如 $\small\mathrm{where\ (\mathit{i.ID,\ name})=(\mathit{t.ID,}}$ '$\small abc$'$)$</li>
+    <li style="margin:1px 46px;">$\small(v_1,...,v_n)$ : &emsp;&emsp;分量的字典序比较，例如 $\small\mathrm{where\ (\mathit{i.ID,\ name})=(\mathit{t.ID,}}$ '$\small abc$'$)$</li>
     </ul>
 </ul>
 </body>
 </html>
-尽管各子句必须按 $\small\mathrm{select}$-$\small\mathrm{from}$-$\small\mathrm{where}$ 的次序给出，但其逻辑上的顺序为 $\small\mathrm{from}$-$\small\mathrm{where}$-$\small\mathrm{select}$。</p>
+尽管各子句必须按 $\small\mathrm{select}$-$\small\mathrm{from}$-$\small\mathrm{where}$ 的次序给出，但其逻辑上的顺序为 $\small\mathrm{from}$-$\small\mathrm{where}$-$\small\mathrm{select}$。
+<br><br></p>
 <h4 id="2">(2). 自然连接</h4>
 <p>对于 $\mathrm{from}$ 子句列出的关系，通过 "," 连接产生笛卡尔积，而通过 $\mathrm{natural\ join}$ 进行自然连接。</p>
-<blockquote>
-<p><font face="Consolas"><em>e.g.</em></font><font face="Consolas">1</font> 列出教师的名字以及他们所讲授课程的名称
+<blockquote style="margin-top:0px;margin-bottom:0px;margin-left:6px;">
+<cs><i>e.g.</i>1-1</cs> 列出教师的名字以及他们所讲授课程的名称
 <div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">title</span>
 <span class="k">FROM</span> <span class="n">instructor</span> <span class="k">NATURAL</span> <span class="k">JOIN</span> <span class="n">teaches</span><span class="p">,</span> <span class="n">course</span>
 <span class="k">WHERE</span> <span class="n">teaches</span><span class="p">.</span><span class="n">course_id</span> <span class="o">=</span> <span class="n">course</span><span class="p">.</span><span class="n">course_id</span><span class="p">;</span>
 </pre></div>
-注意不要对 $\mathit{course}$ 进行自然连接，属性 $\mathit{dept\_name}$ 是不被期望相等的。</p>
-</blockquote>
-<p>可以显式指定自然连接中期望相等的属性，例 1 中的 $\mathrm{from}$ 子句可重写如下
+自然连接有时需要注意哪些不期望相等的非主属性。<br>
+在此例中，属性 $\small\mathit{dept\_name}$ 是不被期望相等的。<br>
+可以显式指定自然连接中期望相等的属性，例 1 中的 $\mathrm{from}$ 子句则写为：
 <div class="codehilite"><pre><span></span><span class="k">FROM</span> <span class="p">(</span><span class="n">instructor</span> <span class="k">NATURAL</span> <span class="k">JOIN</span> <span class="n">teaches</span><span class="p">)</span> <span class="k">JOIN</span> <span class="n">course</span> <span class="k">USING</span> <span class="p">(</span><span class="n">course_id</span><span class="p">)</span>
-</pre></div></p>
+</pre></div>
+</blockquote>
+
+<ul style="margin-top:-10px;margin-bottom:-17px;line-height:30px;">
+<li style="margin:1px 6px;">$\small\mathrm{\dots\ \ join\ \ \mathit{r}\ \ using\ (\mathit{attr_1,\dots })}$ : 指定自然连接的取值匹配</li>
+<li style="margin:1px 6px;">$\small\mathrm{\dots\ \ join\ \ \mathit{r}\ \ on\ \ \mathit{predicate}}$ : 在参与连接的关系上设置通用的谓词。$\small\mathrm{on}$ 是生成临时表的条件，而 $\small\mathrm{where}$ 是对生成好的临时表再筛选的条件。
+</li>
+</ul>
+
+<p><br></p>
+<h4 id="3">(3). 外连接</h4>
+<p>$\small\mathrm{natural\ join}$ 或 $\small\mathrm{join\ ...\ using/on}$ 通过某些条件筛选连接的表，$\small\mathrm{outer\ join}$ 用于保留某一方的未匹配元组，把剩余部分用 $\small\mathit{null}$ 填充后加入结果中。</p>
+<blockquote style="margin-top:-6px;margin-bottom:-8px;margin-left:6px;">
+<cs><i>e.g.</i>1-2</cs> 找出一门课也没有选修的学生
+<div style="margin-top:-16px">
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">ID</span>
+<span class="k">FROM</span> <span class="n">student</span> <span class="k">NATURAL</span> <span class="k">LEFT</span> <span class="k">OUTER</span> <span class="k">JOIN</span> <span class="n">takes</span>
+<span class="k">WHERE</span> <span class="n">course_id</span> <span class="k">IS</span> <span class="k">null</span><span class="p">;</span>
+</pre></div>
+</div>
+</blockquote>
+
+<p>需要注意的是，自然连接 $\small\mathrm{on}$ 子句可以用 $\small\mathrm{where}$ + 普通连接实现。但对于外连接，如果没有条件筛选 $\small\mathrm{natural、on、using}$，外连接的含义会丢失。</p>
 <h3 id="2_1">2. 附加运算</h3>
 <h4 id="1_2">(1). 更名运算</h4>
 <p>一般情况下，查询结果的属性名会自动从基关系导出。更名运算的意义在于：
 <html> 
 <body>
 <ul style="margin-top:-16px;margin-bottom:10px;line-height:30px;">
-<li style="margin:1px 26px;">$\mathrm{from}$ 中的关系可能存在同名属性</li>
-<li style="margin:1px 26px;">在 $\mathrm{select}$ 中使用算术表达式会使结果属性无名</li>
+<li style="margin:1px 26px;">$\small\mathrm{from}$ 中的关系可能存在同名属性</li>
+<li style="margin:1px 26px;">在 $\small\mathrm{select}$ 中使用算术表达式会使结果属性无名</li>
 <li style="margin:1px 26px;">有时候需要修改结果的属性名</li>
 </ul>
 </body>
 </html>
 为此，<font size=3>SQL</font> 提供重命名的方法：$\small\mathit{old\_name}$ $\mathrm{as}$ $\small\mathit{new\_name}$，$\mathrm{as}$ 子句可以出现在 $\mathrm{select}$ 和 $\mathrm{from}$ 中。</p>
-<blockquote>
-<p><font face="Consolas"><em>e.g.</em></font><font face="Consolas">2</font> 重命名属性
+<blockquote style="margin-left:6px;">
+<cs><i>e.g.</i></cs><cs>2-1</cs>&emsp;重命名属性
+<div style="margin-top:-16px">
 <div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span> <span class="k">as</span> <span class="n">instructor_name</span> <span class="k">FROM</span> <span class="n">instructor</span><span class="p">;</span>
 </pre></div>
-<font face="Consolas"><em>e.g.</em></font><font face="Consolas">3</font> 重命名关系，简化名称
+</div>
+<cs><i>e.g.</i><cs></cs>2-2</cs>&emsp;重命名关系，简化名称
+<div style="margin-top:-16px">
 <div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">T</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">S</span><span class="p">.</span><span class="n">course_id</span>
 <span class="k">FROM</span> <span class="n">instructor</span> <span class="k">as</span> <span class="n">T</span><span class="p">,</span> <span class="n">teaches</span> <span class="k">as</span> <span class="n">S</span>
 <span class="k">where</span> <span class="n">T</span><span class="p">.</span><span class="n">ID</span> <span class="o">=</span> <span class="n">S</span><span class="p">.</span><span class="n">ID</span><span class="p">;</span>
-</pre></div></p>
+</pre></div>
+</div>
 </blockquote>
-<p>重命名另一个应用是比较同一个关系中的元组。</p>
-<blockquote>
-<p><font face="Consolas"><em>e.g.</em></font><font face="Consolas">4</font> 比生物系某一个教师工资高的所有教师的姓名
+
+<p>重命名另一个应用是比较同一个关系中的元组。
+<blockquote style="margin-top:-9px;margin-bottom:-10px;margin-left:6px;">
+<cs><em>e.g.</em></cs><cs>2-3</cs>&emsp;比生物系某一个教师工资高的所有教师的姓名
+<div style="margin-top:-16px">
 <div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">T</span><span class="p">.</span><span class="n">name</span>
 <span class="k">FROM</span> <span class="n">instructor</span> <span class="k">as</span> <span class="n">T</span><span class="p">,</span> <span class="n">instructor</span> <span class="k">as</span> <span class="n">S</span>
 <span class="k">WHERE</span> <span class="n">T</span><span class="p">.</span><span class="n">salary</span> <span class="o">&gt;</span> <span class="n">S</span><span class="p">.</span><span class="n">salary</span> <span class="k">AND</span> <span class="n">S</span><span class="p">.</span><span class="n">dept_name</span> <span class="o">=</span> <span class="s1">&#39;Biology&#39;</span>
-</pre></div></p>
+</pre></div>
+</div>
 </blockquote>
+<br></p>
 <h4 id="2_2">(2). 字符串运算</h4>
 <p><font size=3>SQL</font> 使用单引号标示字符串，通过双单引号转义。</p>
 <p><html> 
@@ -842,9 +899,7 @@
 </body>
 </html></p>
 <p><font size=3>SQL</font> 支持字符串的模式匹配。
-<html> 
-<body>
-<ul style="margin-top:-14px;margin-bottom:10px;line-height:30px;">
+<ul style="margin-top:-14px;margin-bottom:-16px;line-height:30px;">
 <li style="margin:1px 26px;">$\mathrm{like}$ 通过两个字符描述模式，允许使用 $\mathrm{not}$</li>
     <ul style="margin-top:0px;margin-bottom:0px;list-style-type:circle;line-height:30px;">
     <li style="margin:1px 46px;">$\%$ : 匹配任意子串，例如 '$\small\%\mathrm{Comp}\%$'</li>
@@ -853,19 +908,20 @@
     </ul>
 <li style="margin:1px 26px;">$\mathrm{similar\ to}$: 在 <font size=3>SQL:1999</font> 中引入，语法类似于 <font size=3>UNIX</font> 的正则表达式</li>
 </ul>
-</body>
-</html></p>
-<h4 id="3">(3). 元组排序</h4>
-<p>查询结果可以通过 $\mathrm{order\ by}$ 子句排列显示次序，默认使用升序，也可以通过 $\mathrm{asc}$ 和 $\mathrm{desc}$ 显式指明。</p>
-<blockquote>
-<p><font face="Consolas"><em>e.g.</em></font><font face="Consolas">5</font> 按工资降序输出教师关系，若工资相同，按姓名升序排列
+<br></p>
+<h4 id="3_1">(3). 元组排序</h4>
+<p>查询结果可以通过 $\small\mathrm{order\ by}$ 子句排列显示次序 (默认升序)，也可以通过 $\small\mathrm{asc}$ 和 $\small\mathrm{desc}$ 显式指明</p>
+<blockquote style="margin-top:-9px;margin-bottom:-10px;margin-left:6px;">
+<cs><i>e.g.</i></cs><cs>2-4</cs>&emsp;按工资降序输出教师关系，若工资相同，按姓名升序排列名
+<div style="margin-top:-16px">
 <div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
 <span class="k">FROM</span> <span class="n">instructor</span>
 <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">salary</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">name</span> <span class="k">ASC</span>
-</pre></div></p>
-</blockquote>
-<h3 id="3_1">3. 集合运算</h3>
-<p>&emsp;并、交、差分别通过关键字 $\mathrm{union、intersect}$ 和 $\mathrm{except}$ 实现。集合运算是自动去重的，如果需要保留重复，需要在相应关键字后添加 $\mathrm{all}$。</p>
+</pre></div>
+</div></blockquote>
+
+<h3 id="3_2">3. 集合运算</h3>
+<p>&emsp;并、交、差分别通过关键字 $\mathrm{union、intersect}$ 和 $\mathrm{except}$ 实现。集合运算是自动去重的，如果需要保留重复，需要在相应关键字后添加 $\mathrm{all}$。<br><br></p>
 <h3 id="4">4. 空值</h3>
 <p>空值给算术运算、比较运算和集合运算带来问题。<br></p>
 <h4 id="1_3">① 算术运算</h4>
@@ -900,8 +956,9 @@
 </table>
 
 <p>&emsp;我们可以通过关键字 $\mathrm{null}$ 测试空值，例如 $\small\mathrm{where}\ salary\ \mathrm{is\ not\ null}$，某些 <font size=3>SQL</font> 允许我们使用 $\small\mathrm{is\ unknown}$。</p>
-<h4 id="3_2">③ 集合运算</h4>
+<h4 id="3_3">③ 集合运算</h4>
 <p>&emsp;当使用 $\mathrm{select\ distinct}$ 或集合运算判断重复元组时，如果两个元组的某个分量都为 $\mathit{null}$，那么认为这两个分量相等，而不是 $\mathit{unknown}$。</p>
+<p><br></p>
 <h3 id="5">5. 聚集函数</h3>
 <h4 id="1_4">(1). 基本聚集</h4>
 <p>聚集函数是以一个集合作为输入，返回单个值的函数。<font size=3>SQL</font> 提供了 5 个固有聚集函数：
@@ -916,20 +973,22 @@
 </ul>
 </body>
 </html>
-其中 $\small\mathrm{sum、avg}$ 只能作用于数字集。</p>
+其中 $\small\mathrm{sum、avg}$ 只能作用于数字集。</br></br></p>
 <h4 id="2_4">(2). 分组聚集</h4>
-<p>有时候我们也希望聚集函数作用于一组元组集合上，然后分别聚集并构造表，此时需要使用 $\mathrm{group\ by}$。</p>
-<blockquote>
-<p><font face="Consolas"><em>e.g.</em></font><font face="Consolas">6</font> 查询每个系在 2010 年春季学期讲授一门课程的教师人数
+<p>分组聚集：通过 $\small\mathrm{group\ by}$ 子句，按某些属性将一个关系划分为多个集合，再分别聚集得到新表 </p>
+<blockquote style="margin-top:-9px;margin-bottom:-10px;margin-left:6px;">
+<cs><i>e.g.</i></cs><cs>5-1</cs>&emsp;查询每个系在 2010 年春季学期讲授一门课程的教师人数
+<div style="margin-top:-16px">
 <div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">dept_name</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="n">ID</span><span class="p">)</span> <span class="k">as</span> <span class="n">instr_count</span>
 <span class="k">FROM</span> <span class="n">instructor</span> <span class="k">NATURAL</span> <span class="k">JOIN</span> <span class="n">teaches</span>
 <span class="k">WHERE</span> <span class="n">semester</span> <span class="o">=</span> <span class="s1">&#39;Spring&#39;</span> <span class="k">AND</span> <span class="k">year</span> <span class="o">=</span> <span class="mi">2010</span>
 <span class="k">group</span> <span class="k">by</span> <span class="n">dept_name</span><span class="p">;</span>
-</pre></div></p>
-</blockquote>
-<p>如果一个属性没有出现在 $\mathrm{group\ by}$ 中且出现在了 $\mathrm{select}$ 中，那么它一定出现在聚集函数内部，否则这就是一条错误的查询。</p>
+</pre></div>
+</div></blockquote>
+
+<p>如果一个属性没有出现在 $\small\mathrm{group\ by}$ 中且出现在了 $\small\mathrm{select}$ 中，那么它一定出现在聚集函数内部，否则这就是一条错误的查询。<br></br></p>
 <h4 id="3-mathrmhaving">(3). $\mathrm{having}$ 子句</h4>
-<p>&emsp;有时候，我们需要直接对分组限定条件，此时需要使用 $\mathrm{having}$ 子句。由于 $\mathrm{having}$ 子句中的谓词在分组生效后才起作用，因此可以使用聚集函数。<br>
+<p>有时候，我们需要直接对分组限定条件，此时需要使用 $\mathrm{having}$ 子句。由于 $\mathrm{having}$ 子句中的谓词在分组生效后才起作用，因此可以使用聚集函数。<br>
 &emsp;包含聚集、$\small\mathrm{group\ by}$ 和 $\small\mathrm{having}$ 的查询可通过下面的操作序列定义：
 <html> 
 <body>
@@ -941,15 +1000,17 @@
 </ul>
 </body>
 </html></p>
-<blockquote>
-<p><font face="Consolas"><em>e.g.</em></font><font face="Consolas">7</font> 对于在 2009 年每个讲授的课程段，如果该课程段至少有两名学生选课，查询选修该课程段的所有学生的总学分的平均值
+<blockquote style="margin-top:-9px;margin-bottom:-10px;margin-left:6px;">
+<cs><i>e.g.</i></cs><cs>5-2</cs>&emsp;对于在 <cy>2009</cy> 年每个讲授的课程段，如果该课程段至少有两名学生选课，查询选修该课程段的所有学生的总学分的平均值
+<div style="margin-top:-16px"> 
 <div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">course_id</span><span class="p">,</span> <span class="n">sec_id</span><span class="p">,</span> <span class="n">semester</span><span class="p">,</span> <span class="k">year</span><span class="p">,</span> <span class="k">AVG</span><span class="p">(</span><span class="n">total_credits</span><span class="p">)</span>
 <span class="k">FROM</span> <span class="n">student</span> <span class="k">NATURAL</span> <span class="k">JOIN</span> <span class="n">takes</span>
 <span class="k">WHERE</span> <span class="k">year</span> <span class="o">=</span> <span class="mi">2009</span>
 <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">course_id</span><span class="p">,</span> <span class="n">sec_id</span><span class="p">,</span> <span class="n">semester</span><span class="p">,</span> <span class="k">year</span>
 <span class="k">HAVING</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">ID</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">;</span>
-</pre></div></p>
-</blockquote>
+</pre></div>
+</div></blockquote>
+
 <h4 id="4_1">(4). 空值的聚集</h4>
 <p>除了 $\mathrm{count(*)}$ 以外的所有聚集函数都忽略输入集合中的空值。<br>
 $\mathrm{count}$ 空集的结果为 0，其余的聚集函数对于空集的结果为空值。</p>

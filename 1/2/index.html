@@ -510,6 +510,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../2/4/" title="4.intermediate" class="md-nav__link">
+      4.intermediate
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -821,7 +833,8 @@ $$r⟕s=(r\Join s)\cup(r-\Pi_R(r\Join s))\times \lbrace(\mathit{null,\ ...\ ,nul
 其中常数关系 $\lbrace(\mathit{null,\ ... \ ,null\ })\rbrace$ 的模式是 $\small S-R$。</br>
 &emsp;由于外连接可能产生含有空值的结果，我们需要了解不同的关系代数运算是如何处理空值的。</p>
 <h4 id="5_1">(5). 除</h4>
-<p>$$r\div s=\lbrace t | t\in\Pi_{R-S}(r)\ \land \ \forall u \in s(tu \in r) \rbrace $$
+<p>以 $\small r\div s$ 为例，首先将 $\small R$ 分为两部分：$\small X=R-S$ 和 $\small Y=R-(R-S)$。把 $\small r$ 中所有的元组按照 $\small X$ 是否相等划分为组，保留那些 $\small Y$ 部分包含了 $\small s$ 中所有取值的组。最后按 $\small X$ 投影。即：
+$$r\div s=\lbrace t | t\in\Pi_{R-S}(r)\ \land \ \forall u \in s(tu \in r) \rbrace $$
 其中 $tu$ 是元组的连接。除操作用关系代数表达为：
 $$r\div s = \Pi_{R-S}(r)-\Pi_{R-S}((\Pi_{R-S}(r)\times s)-r)$$</p>
 <h3 id="4_2">4. 扩展运算</h3>
