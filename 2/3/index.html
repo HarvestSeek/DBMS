@@ -735,7 +735,7 @@
 <blockquote style="margin-top:-9px;margin-bottom:-10px;margin-left:6px;">
 <cs><i>e.g.</i></cs><cs>8-1</cs>&emsp;列出所有的系及它们的教师数。<br>
 <div style="margin-top:-16px"> 
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">dept_name</span> <span class="p">(</span>
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">dept_name</span><span class="p">,</span> <span class="p">(</span>
     <span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
     <span class="k">FROM</span> <span class="n">instructor</span>
     <span class="k">WHERE</span> <span class="n">department</span><span class="p">.</span><span class="n">dept_name</span> <span class="o">=</span> <span class="n">instructor</span><span class="p">.</span><span class="n">dept_name</span><span class="p">)</span>

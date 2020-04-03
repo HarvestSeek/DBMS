@@ -447,6 +447,26 @@
     4. 触发器
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" title="(1). 使用场景" class="md-nav__link">
+    (1). 使用场景
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" title="(2). 其他" class="md-nav__link">
+    (2). 其他
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -604,6 +624,26 @@
     4. 触发器
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" title="(1). 使用场景" class="md-nav__link">
+    (1). 使用场景
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" title="(2). 其他" class="md-nav__link">
+    (2). 其他
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -685,6 +725,57 @@
 </ul>
 
 <h3 id="4">4. 触发器</h3>
+<p>触发器 (<cy2>trigger</cy2>) 是一条语句，指明了条件与动作。当对数据库的修改满足了其条件，它即被自动执行。其基本格式为：
+<div style="line-height:10px;margin-top:-16px;margin-left:13px;">
+$\small\mathrm{create\ \ trigger}\ \ \mathit{tname}\ \ \mathrm{[before \ |\ after]}\ $ <cs>&lt;</cs>$\small event$<cs>&gt;</cs> 
+$\small\ \mathrm{on}\ \ \ r$<br>
+$\small\mathrm{for\ \ each\ \ [row\ |\ statement]}$<br>
+$\small\mathrm{when}$ <cs>&lt;</cs>$\small\mathit{p}$<cs>&gt;</cs><br>
+$\small\mathrm{begin} ...\ ...\ \mathrm{end};$
+</div>
+其中 $\small\mathrm{when}$ 指明触发条件，$\small\mathrm{begin}$ 和 $\small\mathrm{end}$ 之间实现触发器的动作。</p>
+<h4 id="1_3">(1). 使用场景</h4>
+<ul style="margin-top:-10px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 6px;">实现无法通过 <cy>SQL</cy> 约束机制指定的完整性约束</li>
+<li style="margin:1px 6px;">当满足特定条件时，对用户触发警报或执行某项任务</li>
+<li style="margin:1px 6px;">物化视图：修改底层关系时，通过触发器修改视图 (对于那些不支持物化视图的数据库)</li>
+</ul>
+
+<blockquote style="margin-top:3px;margin-bottom:-10px;margin-left:6px;line-height:12px;">
+<cs><i>e.g.</i></cs><cs>1</cs>&emsp;当关系 $\small\mathit{takes}$ 的 $\small\mathit{grade}$ 属性被更新时，意味着一名学生修完了一门课程。此时需要更新 $\small\mathit{student}$ 的 $\small\mathit{total\_credits}$ 属性。
+<div style="margin-top:-16px"> 
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">TRIGGER</span> <span class="n">credits_earned</span> <span class="k">AFTER</span> <span class="k">UPDATE</span> <span class="k">OF</span> <span class="n">takes</span> <span class="k">ON</span> <span class="p">(</span><span class="n">grade</span><span class="p">)</span>
+<span class="k">FOR</span> <span class="k">EACH</span> <span class="k">ROW</span>
+<span class="k">WHEN</span> <span class="k">old</span><span class="p">.</span><span class="n">grade</span> <span class="k">is</span> <span class="k">null</span> <span class="k">AND</span> <span class="k">new</span><span class="p">.</span><span class="n">grade</span> <span class="o">&lt;</span> <span class="mi">100</span>
+<span class="k">BEGIN</span>
+    <span class="k">UPDATE</span> <span class="n">student</span>
+    <span class="k">SET</span> <span class="n">total_credits</span> <span class="o">=</span> <span class="n">total_credits</span> <span class="o">+</span> <span class="p">(</span>
+        <span class="k">SELECT</span> <span class="n">credits</span> <span class="k">FROM</span> <span class="n">course</span> 
+        <span class="k">WHERE</span> <span class="n">course</span><span class="p">.</span><span class="n">course_id</span> <span class="o">=</span> <span class="k">new</span><span class="p">.</span><span class="n">course_id</span>
+    <span class="p">)</span>
+    <span class="k">WHERE</span> <span class="n">student</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="k">new</span><span class="p">.</span><span class="n">id</span>
+<span class="k">END</span><span class="p">;</span>
+</pre></div>
+</div></blockquote>
+
+<blockquote style="margin-top:3px;margin-bottom:-10px;margin-left:6px;line-height:12px;">
+<cs><i>e.g.</i></cs><cs>2</cs>&emsp;当插入 $\small\mathit{student}$ 信息时，如果名字为空串，代表名字不确定，用空值代替。
+<div style="margin-top:-16px"> 
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">TRIGGER</span> <span class="n">name_modify</span> <span class="k">BEFORE</span> <span class="k">INSERT</span> <span class="k">ON</span> <span class="p">(</span><span class="n">student</span><span class="p">)</span>
+<span class="k">FOR</span> <span class="k">EACH</span> <span class="k">ROW</span>
+<span class="k">WHEN</span> <span class="k">new</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="k">BEGIN</span>
+    <span class="k">SET</span> <span class="k">new</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="k">null</span>
+<span class="k">END</span><span class="p">;</span>
+</pre></div>
+</div></blockquote>
+
+<h4 id="2_3">(2). 其他</h4>
+<ul style="margin-top:-10px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 6px;">和插入删除相关的外键约束不应用触发器实现</li>
+<li style="margin:1px 6px;">一个触发器的动作可以除法另一个触发器，避免出现无限的触发器链</li>
+</ul>
+
 <p></font></p>
                 
                   
