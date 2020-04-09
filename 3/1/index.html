@@ -481,8 +481,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3_1" title="(3). 非二元联系集" class="md-nav__link">
-    (3). 非二元联系集
+  <a href="#3_1" title="(3). 非二元联系集*" class="md-nav__link">
+    (3). 非二元联系集*
   </a>
   
 </li>
@@ -677,8 +677,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3_1" title="(3). 非二元联系集" class="md-nav__link">
-    (3). 非二元联系集
+  <a href="#3_1" title="(3). 非二元联系集*" class="md-nav__link">
+    (3). 非二元联系集*
   </a>
   
 </li>
@@ -777,7 +777,7 @@
                 
                 <p><font class="generalcy"></p>
 <h3 id="1">1. 设计过程概述</h3>
-<p>现实中的应用通常十分复杂，一个数据库设计的步骤依次如下：
+<p>现实中的应用通常十分复杂，数据库设计的步骤通常如下：
 <html> 
 <body>
 <ul style="margin-top:-16px;margin-bottom:10px;line-height:30px;">
@@ -823,13 +823,13 @@ $\small n\geq 2$。称实体集 $\small E_1,E_2,...,E_n$ 参与 (<cy2>participat
 </body>
 </html></p>
 <h4 id="2">(2). 约束</h4>
-<p>① 映射基数 (<cy2>mapping cadinality</cy2>)：或称基数比率，表示一个实体通过一个联系集能关联的实体的个数，在描述二元关系集时十分有用，共分为 一对一、一对多、多对一 和 多对多四种情况。</p>
+<p>① 映射基数 (<cy2>mapping cadinality</cy2>)：或称基数比率，表示一个实体通过一个联系集能关联的实体的个数，在描述二元关系集时十分有用，有 一对一、一对多、多对一、多对多 四种情况。</p>
 <p>② 参与约束：如果实体集 $\small E$ 的每个实体都参与到 $\small R$ 的至少一个联系中，$\small E$ 在 $\small R$ 中的参与称为全部的(<cy2>total</cy2>)；如果只有部分参与，则称为部分的 (<cy2>partial</cy2>)。</p>
 <p>③ 码：关系模式的超码、候选码、主码的概念仍适用于实体。
 <html> 
 <body>
 <ul style="margin-top:-10px;margin-bottom:10px;line-height:30px;">
-<li style="margin:1px 26px;">联系集 $\small R$ 用 $\small\mathit{primary}$<em>-</em>$\small\mathit{key}\ (E_1)\cup...\cup\mathit{primary}$<em>-</em>$\small\mathit{key}\ (E_n)\cup\lbrace a_1,...,a_n\rbrace$ 描述。其中 $a_i$ 是联系集的属性，每个 $\small E_i$ 的属性如果重名，则重命名加以区分 (重名属性含义不同)；</li>
+<li style="margin:1px 26px;">联系集 $\small R$ 的属性集为 $\small\mathit{primary}$<em>-</em>$\small\mathit{key}\ (E_1)\cup...\cup\mathit{primary}$<em>-</em>$\small\mathit{key}\ (E_n)\cup\lbrace a_1,...,a_n\rbrace$。其中 $a_i$ 是联系集的描述性属性。若 $\small E_i$ 间的属性重名且重名属性含义不同，则重命名加以区分；</li>
 <li style="margin:1px 26px;">$\small\mathit{primary}$<em>-</em>$\small\mathit{key}\ (E_1)\cup...\cup\mathit{primary}$<em>-</em>$\small\mathit{key}\ (E_n)$ 一定是联系集的一个超码</li>
 </ul>
 </body>
@@ -837,40 +837,50 @@ $\small n\geq 2$。称实体集 $\small E_1,E_2,...,E_n$ 参与 (<cy2>participat
 联系集的主码依赖于其映射基数，以二元联系为例，如果是多对多的，则选取所有主码的并集；如果是多对一的，则选取多的那侧的主码；如果是一对一的，选取哪个的主码均可。对于非二元关系，如果没有基数限制，则选取所有主码的并集；如果有基数限制，主码的选择更加复杂。</p>
 <h4 id="3">(3). 删除多余属性</h4>
 <p>在选择好实体及其相应属性后，并为它们建立联系时，可能导致不同实体集的属性冗余，此时需要将其从原始实体集中删除。</p>
-<blockquote>
-<p><csg><em>e.g.</em></csg><br>
+<blockquote style="margin-top:-9px;margin-bottom:-10px;margin-left:6px;">
+<cs><i>e.g.</i></cs><br>
 &emsp;$\small\mathrm{classroom}\ (\mathit{\textcolor{black}{building}, \textcolor{black}{room\_number}, capacity})$<br>
 &emsp;$\small\mathrm{section}\ (\mathit{\textcolor{black}{course\_id,sec\_id,semester,year},building,room\_number,timeslot\_id})$<br>
-&emsp;$\small\mathrm{sec\_class}$ : 关联 $\small\mathrm{classroom}$ 和 $\small\mathrm{section}$<br><br>
-由于 $\small\mathrm{section}$ 的非主码中包含了 $\small\mathrm{classroom}$ 的主码，需要删除 $\small\mathrm{section}$ 中的 $\small\lbrace\mathit{building,room\_number}\rbrace$。</p>
+&emsp;$\small\mathrm{sec\_class}$ : 关联 $\small\mathrm{classroom}$ 和 $\small\mathrm{section}$<br>
+由于 $\small\mathrm{section}$ 的非主码中包含了 $\small\mathrm{classroom}$ 的主码，在建立联系 $\small\mathrm{sec\_class}$ 后，需要删除 $\small\mathrm{section}$ 中的 $\small\lbrace\mathit{building,room\_number}\rbrace$。
 </blockquote>
+
 <h4 id="4">(4). 弱实体集</h4>
-<blockquote>
-<p>考虑以下实体：
-<blockquote style="border:none;margin-top:-20px;margin-left:-20px;margin-bottom:0px;">
+<blockquote style="margin-top:-9px;margin-bottom:-10px;margin-left:6px;">
+考虑下面的一种特殊情况：
+<blockquote style="border:none;margin-top:-4px;margin-left:-20px;margin-bottom:0px;">
 &emsp;$\small\mathrm{course}\ (\mathit{\textcolor{black}{course\_id},title,dept\_name,credits})$<br>
 &emsp;$\small\mathrm{section}\ (\mathit{\textcolor{black}{course\_id,sec\_id,semester,year},building,room\_number,timeslot\_id})$<br>
 &emsp;$\small\mathrm{sec\_course}: $ 联系 $\small\mathrm{course}$ 和 $\small\mathrm{section}$。
 </blockquote>
-若这样设计，$\small\mathrm{sec\_course}$ 中的信息则是冗余的。如果直接删除 $\small\mathrm{sec\_course}$，使得两个实体的联系隐含于一个属性中，虽可以解决问题，但并不是我们想要的，弱实体集由此而生。</p>
+若这样设计，$\small\mathrm{sec\_course}$ 中的信息是冗余的。
+<html> 
+<body>
+<ul style="margin-top:0px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 26px;">若直接删除 $\small\mathrm{sec\_course}$，通过主属性隐含表达此联系，则后续将 <cy2>E-R</cy2> 模型转化为关系模式时无法记录此外键约束；</li>
+<li style="margin:1px 26px;">因此，暂时删除 $\small\mathrm{section}$ 的 $\small\mathrm{course\_id}$ 属性，将 $\small\mathrm{section}$ 表示为弱实体集</li>
+</ul>
+</body>
+</html>
 </blockquote>
+
 <p>没有足够属性形成主码的实体集称为弱实体集 (<cy2>weak entity set</cy2>), 有主码的实体集称为强实体集
 <html> 
 <body>
-<ul style="margin-top:-10px;margin-bottom:10px;line-height:30px;">
+<ul style="margin-top:-10px;margin-bottom:5px;line-height:30px;">
 <li style="margin:1px 26px;">属主实体集 (<cy2>owner</cy2>): 标识弱实体集。称它 拥有 它所标识的若实体集。</li>
 <li style="margin:1px 26px;">标识性联系 (<cy2>identifying</cy2>): 将弱实体集与其属主关联的联系。</li>
 <li style="margin:1px 26px;">分辨符 (<cy2>discriminator</cy2>): 又称部分码，与标识实体集的主码共同组成若实体集的主码。</li>
 </ul>
 </body>
 </html>
-如果弱实体集只参与标识性联系，且其属性不多，在建模时将其表示为属主实体集的一个符合属性更为恰当。其他情况下，将其表示为弱实体集更恰当，例如上面例子中的 $\small\mathrm{section}$。</p>
+如果弱实体集只参与标识性联系，且属性不多，建模时将其表示为属主实体集的复合属性更恰当。其他情况下，将其表示为弱实体集更恰当，例如上面例子中的 $\small\mathrm{section}$。</p>
 <h3 id="3-">3. 实体-联系图</h3>
 <h4 id="1_2">(1). 基本结构</h4>
 <p><html> 
 <body>
 <ul style="margin-top:-10px;margin-bottom:10px;line-height:30px;">
-<li style="margin:1px 14px;">分成两部分的矩形代表实体集，上面标记名字，下面标记属性，属性的主码以下划线标明，属性的层次结构通过缩进表示</li>
+<li style="margin:1px 14px;">分成两部分的矩形代表实体集，上面标记名字，下面标记属性，属性的主码以下划线标明，属性的层次结构通过缩进表示,多值属性标注大括号</li>
 <img src="../img/er1.png" height=115 align=right>
 <li style="margin:1px 14px;">菱形代表联系集</li>
 <li style="margin:1px 14px;">实线连接实体集和联系集，虚线连接联系集和联系集的属性</li>
@@ -878,13 +888,21 @@ $\small n\geq 2$。称实体集 $\small E_1,E_2,...,E_n$ 参与 (<cy2>participat
 </ul>
 </body>
 </html></p>
+<p>&emsp;&emsp;<img src="../img/role.png" height=110 align=right style="margin-right:96px;margin-top:-30px"></p>
 <h4 id="2_1">(2). 映射基数</h4>
 <p>&emsp;&emsp;<img src="../img/er2.png" height=180></p>
-<p>① 一对一：两边各画一个箭头； ② 一对多："多"的一侧不画箭头； ③ 多对多：两侧都是线段。</p>
-<p><cy>E-R</cy> 图还提供了一种更复杂的、描述每个实体参与联系集中的联系次数的方法: <br>
-实体集和二元联系集的边上标记最小和最大的映射基数 $l..h$。$l=1$ 表示此实体集的实体全部参与该联系，$h=1$ 表示此实体集的实体至多参与一次该联系。</p>
+<p>① 一对一：两边各一个箭头； ② 一对多："一"侧被单向箭头指向； ③ 多对多：两侧都是线段。</p>
+<p><cy>E-R</cy> 图还提供了一种更复杂的、描述每个实体参与联系集中的联系次数的方法: 
+<html> 
+<body>
+<ul style="margin-top:-16px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 26px;">实体集和二元联系集的边上标记 $\small l..h$，表示对于实体集中的每一个实体，它的参与度的取值范围在 $\small[l,h]$ 之间</li>
+<li style="margin:1px 26px;">$l=1$ 表示此实体集的实体全部参与该联系，$h=1$ 表示此实体集的实体至多参与一次该联系。上面的例子表示了从 $\small\mathrm{instructor}$ 到 $\small\mathrm{student}$ 的一个一对多联系。</li>
+</ul>
+</body>
+</html></p>
 <p><img src="../img/er3.png" height=133 align=right></p>
-<h4 id="3_1">(3). 非二元联系集</h4>
+<h4 id="3_1">(3). 非二元联系集*</h4>
 <p>通过右侧的形式表示。如果要表示 "一个学生在一个项目上至多有一位导师"，只需令 $\small\mathit{proj\_guide}$ 指向 $\small\mathit{instructor}$ 即可。</p>
 <p>在一个联系集外至多允许一个箭头，因为包含两个或多个箭头的 <cy>E-R</cy> 图可以用两种方法解释。<br>
 假设实体集 $\small A_1,...,A_n$ 之间有联系集 $\small R$，且 $\small R$ 指向 $\small A_{i+1},...,A_{n}$ 的连线是箭头。那么两种可能的解释为：
@@ -927,7 +945,7 @@ $\small n\geq 2$。称实体集 $\small E_1,E_2,...,E_n$ 参与 (<cy2>participat
 同一个班不存在两次课，在一天的同一时间开始且在不同时间结束。</p>
 </blockquote>
 <h4 id="2_2">(2). 弱实体集的表示</h4>
-<p>设 $\small A$ 是弱实体集, $\small B$ 是 $\small A$ 依赖的强实体集, 则 $\small A$ 的关系模式的结构为 $\small\lbrace a_1,...,a_m\rbrace\cup\lbrace b_1,...,b_n\rbrace$
+<p>设 $\small A$ 是弱实体集, $\small B$ 是 $\small A$ 依赖的强实体集, 则 $\small A$ 的关系模式的结构为 $\small\lbrace a_1,...,a_m\rbrace\cup\lbrace b_1,...,b_n\rbrace$，其中 $\small a_i$ 是 $\small A$ 的属性，$\small b_i$ 是 $\small B$ 的主属性
 <html> 
 <body>
 <ul style="margin-top:-10px;margin-bottom:10px;line-height:30px;">
@@ -954,9 +972,8 @@ $\small n\geq 2$。称实体集 $\small E_1,E_2,...,E_n$ 参与 (<cy2>participat
 <p>连接弱实体集和强实体集的联系集是多对一的且无描述性属性，由此产生的模式是多余的。</p>
 <h5 id="3_3"><h52><num1>③</num1> 合并模式</h52></h5>
 <p>考虑从实体集 $\small A$ 到 $\small B$ 的一个多对一的联系集 $\small AB$，得到了三个模式 $a$、$b$、$ab$。<br>
-设 $\small A$ 在该联系中的参与是全部的，那么 $a$ 与 $ab$ 可以合并，主码取二者主码的并。<br>
-(相当于: 对于多对一的关系, 把 "一" 的主码和联系的描述属性作为普通属性并入 "多" 的一方)
-<html> 
+设 $\small A$ 在该联系中的参与是全部的，那么 $\small AB$ 有 $\small A$ 的全部主属性， $a$ 与 $ab$ 可以合并，主码取二者主码的并。<br></p>
+<p><html> 
 <body>
 <ul style="margin-top:-15px;margin-bottom:10px;line-height:30px;">
 <li style="margin:1px 26px;">即使参与是部分的，也可以通过空值合并模式</li>
