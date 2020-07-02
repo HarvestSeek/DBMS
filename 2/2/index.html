@@ -1,5 +1,3 @@
-<!-- Fix MathJax rendering on iOS Safari due to rendering long numbers as phone numbers. -->
-
 
 
 
@@ -7,46 +5,23 @@
 <html lang="en" class="no-js">
   <head>
     
-	
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
       
-      
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.language" content="en">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
-      <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.0">
     
-	<meta name="format-detection" content="telephone=no">
-
     
       
         <title>2.basic queries - Learning Notes of Data Base Management System</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.89dc9fe3.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.01803549.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecd4686e.min.css">
       
       
         
@@ -55,16 +30,13 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
-    
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
       <link rel="stylesheet" href="../../css/katex.css">
@@ -86,97 +58,80 @@
     
       
         
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-117404761-1", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
+<link rel="preconnect dns-prefetch" href="https://www.google-analytics.com">
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-117404761-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview")})</script>
 <script async src="https://www.google-analytics.com/analytics.js"></script>
       
     
     
   </head>
   
+  
     
     
     <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="blue">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-      </defs>
-    </svg>
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#1" tabindex="1" class="md-skip">
-        Skip to content
-      </a>
-    
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="Learning Notes of Data Base Management System" class="md-header-nav__button md-logo">
-          
-            <i class="md-icon">import_contacts</i>
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              Learning Notes of Data Base Management System
-            </span>
-            <span class="md-header-nav__topic">
-              
-                2.basic queries
-              
-            </span>
-          
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Learning Notes of Data Base Management System" class="md-header-nav__button md-logo" aria-label="Learning Notes of Data Base Management System">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Learning Notes of Data Base Management System
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              2.basic queries
+            
+          </span>
         </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
       </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Type to start searching
           </div>
@@ -186,31 +141,32 @@
     </div>
   </div>
 </div>
-        
-      </div>
-      
-    </div>
+    
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
       
         
       
       
-      <main class="md-main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../.." title="Learning Notes of Data Base Management System" class="md-nav__button md-logo">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learning Notes of Data Base Management System" class="md-nav__button md-logo" aria-label="Learning Notes of Data Base Management System">
       
-        <i class="md-icon">import_contacts</i>
-      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
     </a>
     Learning Notes of Data Base Management System
   </label>
@@ -248,13 +204,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       I Relational Model
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="I Relational Model" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         I Relational Model
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -298,13 +260,19 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
       II SQL
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="II SQL" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         II SQL
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -331,11 +299,14 @@
 
   <li class="md-nav__item md-nav__item--active">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         2.basic queries
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
       </label>
     
     <a href="./" title="2.basic queries" class="md-nav__link md-nav__link--active">
@@ -343,37 +314,42 @@
     </a>
     
       
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" title="1. 查询的基本结构" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     1. 查询的基本结构
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="1. 查询的基本结构">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1_1" title="(1). 基本查询" class="md-nav__link">
+  <a href="#1_1" class="md-nav__link">
     (1). 基本查询
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2" title="(2). 自然连接" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     (2). 自然连接
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3" title="(3). 外连接" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     (3). 外连接
   </a>
   
@@ -385,29 +361,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2_1" title="2. 附加运算" class="md-nav__link">
+  <a href="#2_1" class="md-nav__link">
     2. 附加运算
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="2. 附加运算">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1_2" title="(1). 更名运算" class="md-nav__link">
+  <a href="#1_2" class="md-nav__link">
     (1). 更名运算
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2_2" title="(2). 字符串运算" class="md-nav__link">
+  <a href="#2_2" class="md-nav__link">
     (2). 字符串运算
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3_1" title="(3). 元组排序" class="md-nav__link">
+  <a href="#3_1" class="md-nav__link">
     (3). 元组排序
   </a>
   
@@ -419,36 +395,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3_2" title="3. 集合运算" class="md-nav__link">
+  <a href="#3_2" class="md-nav__link">
     3. 集合运算
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4" title="4. 空值" class="md-nav__link">
+  <a href="#4" class="md-nav__link">
     4. 空值
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="4. 空值">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1_3" title="① 算术运算" class="md-nav__link">
+  <a href="#1_3" class="md-nav__link">
     ① 算术运算
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2_3" title="② 比较运算" class="md-nav__link">
+  <a href="#2_3" class="md-nav__link">
     ② 比较运算
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3_3" title="③ 集合运算" class="md-nav__link">
+  <a href="#3_3" class="md-nav__link">
     ③ 集合运算
   </a>
   
@@ -460,36 +436,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5" title="5. 聚集函数" class="md-nav__link">
+  <a href="#5" class="md-nav__link">
     5. 聚集函数
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="5. 聚集函数">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1_4" title="(1). 基本聚集" class="md-nav__link">
+  <a href="#1_4" class="md-nav__link">
     (1). 基本聚集
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2_4" title="(2). 分组聚集" class="md-nav__link">
+  <a href="#2_4" class="md-nav__link">
     (2). 分组聚集
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-mathrmhaving" title="(3). $\mathrm{having}$ 子句" class="md-nav__link">
+  <a href="#3-mathrmhaving" class="md-nav__link">
     (3). $\mathrm{having}$ 子句
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4_1" title="(4). 空值的聚集" class="md-nav__link">
+  <a href="#4_1" class="md-nav__link">
     (4). 空值的聚集
   </a>
   
@@ -499,10 +475,6 @@
     </nav>
   
 </li>
-      
-      
-      
-      
       
     </ul>
   
@@ -547,13 +519,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
       III Database Design
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="III Database Design" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         III Database Design
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -588,6 +566,60 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      IV Storage And Querying
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="IV Storage And Querying" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        IV Storage And Querying
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../4/1/" title="1. indexing and hashing" class="md-nav__link">
+      1. indexing and hashing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../4/2/" title="2. query processing" class="md-nav__link">
+      2. query processing
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -599,37 +631,42 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" title="1. 查询的基本结构" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     1. 查询的基本结构
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="1. 查询的基本结构">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1_1" title="(1). 基本查询" class="md-nav__link">
+  <a href="#1_1" class="md-nav__link">
     (1). 基本查询
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2" title="(2). 自然连接" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     (2). 自然连接
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3" title="(3). 外连接" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     (3). 外连接
   </a>
   
@@ -641,29 +678,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2_1" title="2. 附加运算" class="md-nav__link">
+  <a href="#2_1" class="md-nav__link">
     2. 附加运算
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="2. 附加运算">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1_2" title="(1). 更名运算" class="md-nav__link">
+  <a href="#1_2" class="md-nav__link">
     (1). 更名运算
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2_2" title="(2). 字符串运算" class="md-nav__link">
+  <a href="#2_2" class="md-nav__link">
     (2). 字符串运算
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3_1" title="(3). 元组排序" class="md-nav__link">
+  <a href="#3_1" class="md-nav__link">
     (3). 元组排序
   </a>
   
@@ -675,36 +712,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3_2" title="3. 集合运算" class="md-nav__link">
+  <a href="#3_2" class="md-nav__link">
     3. 集合运算
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4" title="4. 空值" class="md-nav__link">
+  <a href="#4" class="md-nav__link">
     4. 空值
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="4. 空值">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1_3" title="① 算术运算" class="md-nav__link">
+  <a href="#1_3" class="md-nav__link">
     ① 算术运算
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2_3" title="② 比较运算" class="md-nav__link">
+  <a href="#2_3" class="md-nav__link">
     ② 比较运算
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3_3" title="③ 集合运算" class="md-nav__link">
+  <a href="#3_3" class="md-nav__link">
     ③ 集合运算
   </a>
   
@@ -716,36 +753,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5" title="5. 聚集函数" class="md-nav__link">
+  <a href="#5" class="md-nav__link">
     5. 聚集函数
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="5. 聚集函数">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1_4" title="(1). 基本聚集" class="md-nav__link">
+  <a href="#1_4" class="md-nav__link">
     (1). 基本聚集
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2_4" title="(2). 分组聚集" class="md-nav__link">
+  <a href="#2_4" class="md-nav__link">
     (2). 分组聚集
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-mathrmhaving" title="(3). $\mathrm{having}$ 子句" class="md-nav__link">
+  <a href="#3-mathrmhaving" class="md-nav__link">
     (3). $\mathrm{having}$ 子句
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4_1" title="(4). 空值的聚集" class="md-nav__link">
+  <a href="#4_1" class="md-nav__link">
     (4). 空值的聚集
   </a>
   
@@ -755,10 +792,6 @@
     </nav>
   
 </li>
-      
-      
-      
-      
       
     </ul>
   
@@ -771,6 +804,9 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
+                
+                
+                  
                 
                 
                   <h1>2.basic queries</h1>
@@ -818,15 +854,15 @@
 <p>对于 $\mathrm{from}$ 子句列出的关系，通过 "," 连接产生笛卡尔积，而通过 $\mathrm{natural\ join}$ 进行自然连接。</p>
 <blockquote style="margin-top:0px;margin-bottom:0px;margin-left:6px;">
 <cs><i>e.g.</i>1-1</cs> 列出教师的名字以及他们所讲授课程的名称
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">title</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">title</span>
 <span class="k">FROM</span> <span class="n">instructor</span> <span class="k">NATURAL</span> <span class="k">JOIN</span> <span class="n">teaches</span><span class="p">,</span> <span class="n">course</span>
 <span class="k">WHERE</span> <span class="n">teaches</span><span class="p">.</span><span class="n">course_id</span> <span class="o">=</span> <span class="n">course</span><span class="p">.</span><span class="n">course_id</span><span class="p">;</span>
-</pre></div>
+</code></pre></div>
 自然连接有时需要注意哪些不期望相等的非主属性。<br>
 在此例中，属性 $\small\mathit{dept\_name}$ 是不被期望相等的。<br>
 可以显式指定自然连接中期望相等的属性，例 1 中的 $\mathrm{from}$ 子句则写为：
-<div class="codehilite"><pre><span></span><span class="k">FROM</span> <span class="p">(</span><span class="n">instructor</span> <span class="k">NATURAL</span> <span class="k">JOIN</span> <span class="n">teaches</span><span class="p">)</span> <span class="k">JOIN</span> <span class="n">course</span> <span class="k">USING</span> <span class="p">(</span><span class="n">course_id</span><span class="p">)</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="p">(</span><span class="n">instructor</span> <span class="k">NATURAL</span> <span class="k">JOIN</span> <span class="n">teaches</span><span class="p">)</span> <span class="k">JOIN</span> <span class="n">course</span> <span class="k">USING</span> <span class="p">(</span><span class="n">course_id</span><span class="p">)</span>
+</code></pre></div>
 </blockquote>
 
 <ul style="margin-top:-10px;margin-bottom:-17px;line-height:30px;">
@@ -841,10 +877,10 @@
 <blockquote style="margin-top:-6px;margin-bottom:-8px;margin-left:6px;">
 <cs><i>e.g.</i>1-2</cs> 找出一门课也没有选修的学生
 <div style="margin-top:-16px">
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">ID</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">ID</span>
 <span class="k">FROM</span> <span class="n">student</span> <span class="k">NATURAL</span> <span class="k">LEFT</span> <span class="k">OUTER</span> <span class="k">JOIN</span> <span class="n">takes</span>
 <span class="k">WHERE</span> <span class="n">course_id</span> <span class="k">IS</span> <span class="k">null</span><span class="p">;</span>
-</pre></div>
+</code></pre></div>
 </div>
 </blockquote>
 
@@ -865,15 +901,15 @@
 <blockquote style="margin-left:6px;">
 <cs><i>e.g.</i></cs><cs>2-1</cs>&emsp;重命名属性
 <div style="margin-top:-16px">
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span> <span class="k">as</span> <span class="n">instructor_name</span> <span class="k">FROM</span> <span class="n">instructor</span><span class="p">;</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">name</span> <span class="k">as</span> <span class="n">instructor_name</span> <span class="k">FROM</span> <span class="n">instructor</span><span class="p">;</span>
+</code></pre></div>
 </div>
 <cs><i>e.g.</i><cs></cs>2-2</cs>&emsp;重命名关系，简化名称
 <div style="margin-top:-16px">
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">T</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">S</span><span class="p">.</span><span class="n">course_id</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">T</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">S</span><span class="p">.</span><span class="n">course_id</span>
 <span class="k">FROM</span> <span class="n">instructor</span> <span class="k">as</span> <span class="n">T</span><span class="p">,</span> <span class="n">teaches</span> <span class="k">as</span> <span class="n">S</span>
 <span class="k">where</span> <span class="n">T</span><span class="p">.</span><span class="n">ID</span> <span class="o">=</span> <span class="n">S</span><span class="p">.</span><span class="n">ID</span><span class="p">;</span>
-</pre></div>
+</code></pre></div>
 </div>
 </blockquote>
 
@@ -881,10 +917,10 @@
 <blockquote style="margin-top:-9px;margin-bottom:-10px;margin-left:6px;">
 <cs><em>e.g.</em></cs><cs>2-3</cs>&emsp;比生物系某一个教师工资高的所有教师的姓名
 <div style="margin-top:-16px">
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">T</span><span class="p">.</span><span class="n">name</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">T</span><span class="p">.</span><span class="n">name</span>
 <span class="k">FROM</span> <span class="n">instructor</span> <span class="k">as</span> <span class="n">T</span><span class="p">,</span> <span class="n">instructor</span> <span class="k">as</span> <span class="n">S</span>
 <span class="k">WHERE</span> <span class="n">T</span><span class="p">.</span><span class="n">salary</span> <span class="o">&gt;</span> <span class="n">S</span><span class="p">.</span><span class="n">salary</span> <span class="k">AND</span> <span class="n">S</span><span class="p">.</span><span class="n">dept_name</span> <span class="o">=</span> <span class="s1">&#39;Biology&#39;</span>
-</pre></div>
+</code></pre></div>
 </div>
 </blockquote>
 <br></p>
@@ -914,10 +950,10 @@
 <blockquote style="margin-top:-9px;margin-bottom:-10px;margin-left:6px;">
 <cs><i>e.g.</i></cs><cs>2-4</cs>&emsp;按工资降序输出教师关系，若工资相同，按姓名升序排列名
 <div style="margin-top:-16px">
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span>
 <span class="k">FROM</span> <span class="n">instructor</span>
 <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">salary</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">name</span> <span class="k">ASC</span>
-</pre></div>
+</code></pre></div>
 </div></blockquote>
 
 <h3 id="3_2">3. 集合运算</h3>
@@ -979,11 +1015,11 @@
 <blockquote style="margin-top:-9px;margin-bottom:-10px;margin-left:6px;">
 <cs><i>e.g.</i></cs><cs>5-1</cs>&emsp;查询每个系在 2010 年春季学期讲授一门课程的教师人数
 <div style="margin-top:-16px">
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">dept_name</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="n">ID</span><span class="p">)</span> <span class="k">as</span> <span class="n">instr_count</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">dept_name</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="n">ID</span><span class="p">)</span> <span class="k">as</span> <span class="n">instr_count</span>
 <span class="k">FROM</span> <span class="n">instructor</span> <span class="k">NATURAL</span> <span class="k">JOIN</span> <span class="n">teaches</span>
 <span class="k">WHERE</span> <span class="n">semester</span> <span class="o">=</span> <span class="s1">&#39;Spring&#39;</span> <span class="k">AND</span> <span class="k">year</span> <span class="o">=</span> <span class="mi">2010</span>
 <span class="k">group</span> <span class="k">by</span> <span class="n">dept_name</span><span class="p">;</span>
-</pre></div>
+</code></pre></div>
 </div></blockquote>
 
 <p>如果一个属性没有出现在 $\small\mathrm{group\ by}$ 中且出现在了 $\small\mathrm{select}$ 中，那么它一定出现在聚集函数内部，否则这就是一条错误的查询。<br></br></p>
@@ -1003,20 +1039,18 @@
 <blockquote style="margin-top:-9px;margin-bottom:-10px;margin-left:6px;">
 <cs><i>e.g.</i></cs><cs>5-2</cs>&emsp;对于在 <cy>2009</cy> 年每个讲授的课程段，如果该课程段至少有两名学生选课，查询选修该课程段的所有学生的总学分的平均值
 <div style="margin-top:-16px"> 
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">course_id</span><span class="p">,</span> <span class="n">sec_id</span><span class="p">,</span> <span class="n">semester</span><span class="p">,</span> <span class="k">year</span><span class="p">,</span> <span class="k">AVG</span><span class="p">(</span><span class="n">total_credits</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">course_id</span><span class="p">,</span> <span class="n">sec_id</span><span class="p">,</span> <span class="n">semester</span><span class="p">,</span> <span class="k">year</span><span class="p">,</span> <span class="k">AVG</span><span class="p">(</span><span class="n">total_credits</span><span class="p">)</span>
 <span class="k">FROM</span> <span class="n">student</span> <span class="k">NATURAL</span> <span class="k">JOIN</span> <span class="n">takes</span>
 <span class="k">WHERE</span> <span class="k">year</span> <span class="o">=</span> <span class="mi">2009</span>
 <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">course_id</span><span class="p">,</span> <span class="n">sec_id</span><span class="p">,</span> <span class="n">semester</span><span class="p">,</span> <span class="k">year</span>
 <span class="k">HAVING</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">ID</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">;</span>
-</pre></div>
+</code></pre></div>
 </div></blockquote>
 
 <h4 id="4_1">(4). 空值的聚集</h4>
 <p>除了 $\mathrm{count(*)}$ 以外的所有聚集函数都忽略输入集合中的空值。<br>
 $\mathrm{count}$ 空集的结果为 0，其余的聚集函数对于空集的结果为空值。</p>
 <p></font></p>
-                
-                  
                 
               
               
@@ -1033,34 +1067,34 @@ $\mathrm{count}$ 空集的结果为 0，其余的聚集函数对于空集的结�
 <footer class="md-footer">
   
     <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../1/" title="1.introduction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+          <a href="../1/" title="1.introduction" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
             </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
                 1.introduction
-              </span>
+              </div>
             </div>
           </a>
         
         
-          <a href="../3/" title="3.nested subqueries" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+          <a href="../3/" title="3.nested subqueries" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
                 3.nested subqueries
-              </span>
+              </div>
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg>
             </div>
           </a>
         
@@ -1071,11 +1105,10 @@ $\mathrm{count}$ 空集的结果为 0，其余的聚集函数对于空集的结�
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
-        powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
-        and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
-          Material for MkDocs</a>
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
       </div>
       
     </div>
@@ -1084,9 +1117,18 @@ $\mathrm{count}$ 空集的结果为 0，其余的聚集函数对于空集的结�
       
     </div>
     
-      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      <script src="../../assets/javascripts/vendor.36cbf620.min.js"></script>
+      <script src="../../assets/javascripts/bundle.00c583dd.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.7f7c8775.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
         <script src="../../js/katex.js"></script>
       
