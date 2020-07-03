@@ -780,7 +780,7 @@ $\small\mathsf{Redo}$ 和 $\small\mathsf{Undo}$ 都需要参照原有的事务�
 </ul>
  ② 撤销阶段: 回滚 <msf>undo-list</msf>
 <ul style="margin-top:0px;margin-bottom:0px;line-height:30px;">
-<li style="margin:1px 22px;">从后往前扫描日志，若遇到属于 <msf>undo-list</msf> 中的记录，回滚它 (按上面提到的方式)</li>
+<li style="margin:1px 22px;">从后往前扫描日志，若遇到属于 <msf>undo-list</msf> 中的记录，回滚它 (按上面提到的方式，写一个 <msf>redo-only</msf> 的记录)</li>
 <li style="margin:1px 22px;">当发现 <msf>undo-list</msf> 中 $\small\mathsf{T_i}$ 的 $\small\mathsf{\langle T_i,\ start\rangle}$ 记录，就往日志中写一个 $\small\mathsf{\langle T_i,\ abort\rangle}$，并将 $\small\mathsf{T_i}$ 从 <msf>undo-list</msf> 中去掉</li>
 <li style="margin:1px 22px;">当 <msf>undo-list</msf> 为空时，代表系统找到了所有的 $\small\mathsf{\langle T_i,\ start\rangle}$，算法结束</li>
 </ul></p>
