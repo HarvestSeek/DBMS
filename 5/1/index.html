@@ -588,6 +588,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 基于时间戳的并发控制
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 基于时间戳的并发控制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_4" class="md-nav__link">
+    (1). 基本参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_4" class="md-nav__link">
+    (2). 时间戳排序协议
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-thomas" class="md-nav__link">
+    (3). Thomas 写规则
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -723,6 +757,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 基于时间戳的并发控制
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 基于时间戳的并发控制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_4" class="md-nav__link">
+    (1). 基本参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_4" class="md-nav__link">
+    (2). 时间戳排序协议
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-thomas" class="md-nav__link">
+    (3). Thomas 写规则
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -846,6 +914,32 @@
 <p>&emsp;&emsp;<img src="../img/sp.png" height=90></p>
 <p>因此，引入强两段锁协议: 在加锁阶段，允许通过升级操作将共享锁升级为互斥锁；在解锁阶段，允许通过降级操作将互斥锁降级为共享锁。</p>
 <p><img src="../img/lazy.png" height=130></p>
+<h3 id="4">4. 基于时间戳的并发控制</h3>
+<h4 id="1_4">(1). 基本参数</h4>
+<ul style="margin-top:-13px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 16px;">每个事务与一个时间戳相联系，记为 $\small\mathrm{TS}(\mathsf{T_i})$。事务的时间戳决定了串行化顺序，若 $\small\mathrm{TS}(\mathsf{T_i}) < \mathrm{TS}(\mathsf{T_j})$，则系统必须保证产生的调度等价于 $\small\mathsf{T_i}$ 出现在 $\small\mathsf{T_j}$ 之前的某个调度。</li>
+<li style="margin:1px 16px;">$\small\mathrm{W\verb|-| timestamp}(\mathsf{Q})$: 成功执行 $\small\mathrm{write}(\mathsf{Q})$ 的所有事务的最大时间戳</li>
+<li style="margin:1px 16px;">$\small\mathrm{R\verb|-| timestamp}(\mathsf{Q})$: 成功执行 $\small\mathrm{read}(\mathsf{Q})$ 的所有事务的最大时间戳</li>
+</ul>
+
+<h4 id="2_4">(2). 时间戳排序协议</h4>
+<p>在基于时间戳的调度下，可能产生 "读-写 (写-读)" 冲突 和 "写-写" 冲突。因此有:
+<ul style="margin-top:-14px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 26px;">如果事务 $\small\mathsf{T_i}$ 发起 $\small\mathrm{read}(\mathsf{Q})$</li>
+    <ul style="margin-top:0px;margin-bottom:0px;list-style-type:circle;line-height:30px;">
+    <li style="margin:1px 46px;">若 $\small\mathrm{TS}(\mathsf{T_i}) &lt; \mathrm{WT}(\mathsf{Q})$，$\small\mathrm{read}$ 操作被拒绝，$\small\mathsf{T_i}$ 回滚</li>
+    <li style="margin:1px 46px;">若 $\small\mathrm{TS}(\mathsf{T_i}) \geq \mathrm{WT}(\mathsf{Q})$，执行 $\small\mathrm{read}$，且 $\small\mathrm{RT}(\mathsf{Q}) = \max (\mathrm{RT}(\mathsf{Q}),\ \mathrm{TS}(\mathsf{T_i}))$ </li>
+    </ul>
+<li style="margin:1px 26px;">如果事务 $\small\mathsf{T_i}$ 发起 $\small\mathrm{write}(\mathsf{Q})$</li>
+    <ul style="margin-top:0px;margin-bottom:0px;list-style-type:circle;line-height:30px;">
+    <li style="margin:1px 46px;">若 $\small\mathrm{TS}(\mathsf{T_i}) &lt; \mathrm{RT}(\mathsf{Q})$，$\small\mathrm{write}$ 操作被拒绝，$\small\mathsf{T_i}$ 回滚</li>
+    <li style="margin:1px 46px;">若 $\small\mathrm{TS}(\mathsf{T_i}) &lt; \mathrm{WT}(\mathsf{Q})$，$\small\mathrm{write}$ 操作被拒绝，$\small\mathsf{T_i}$ 回滚</li>
+    <li style="margin:1px 46px;">其他情况下，执行 $\small\mathrm{write}$，且 $\small\mathrm{WT}(\mathsf{Q}) = \mathrm{TS}(\mathsf{T_i})$ </li>
+    </ul>
+</ul></p>
+<h4 id="3-thomas">(3). <cy>Thomas</cy> 写规则</h4>
+<p><img src="../img/thomas.png" height=90></p>
+<p>对于 $\small\mathsf{T_{27}}$ 而言，已经有在它后面的事务执行了写操作，它的写操作就没有必要了，但并不必回滚 $\small\mathsf{T_{27}}$，只需要忽略这个写操作即可。<cy>Thomas</cy> 写规则修改了时间戳排序协议的 $\small\mathrm{TS}(\mathsf{T_i}) &lt; \mathrm{WT}(\mathsf{Q})$ 的情况。</p>
 <p></font></p>
                 
               
