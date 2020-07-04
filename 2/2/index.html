@@ -1012,7 +1012,7 @@
 </ul>
 <br></p>
 <h4 id="3_1">(3). 元组排序</h4>
-<p>查询结果可以通过 $\small\mathrm{order\ by}$ 子句排列显示次序 (默认升序)，也可以通过 $\small\mathrm{asc}$ 和 $\small\mathrm{desc}$ 显式指明</p>
+<p>查询结果可以通过 $\small\mathrm{order\ by}$ 子句排列显示次序 (升降序从上向下看，默认升序)，也可以通过 $\small\mathrm{asc}$ 和 $\small\mathrm{desc}$ 显式指明</p>
 <blockquote style="margin-top:-9px;margin-bottom:-10px;margin-left:6px;">
 <cs><i>e.g.</i></cs><cs>2-4</cs>&emsp;按工资降序输出教师关系，若工资相同，按姓名升序排列名
 <div style="margin-top:-16px">
@@ -1088,7 +1088,9 @@
 </code></pre></div>
 </div></blockquote>
 
-<p>如果一个属性没有出现在 $\small\mathrm{group\ by}$ 中且出现在了 $\small\mathrm{select}$ 中，那么它一定出现在聚集函数内部，否则这就是一条错误的查询。<br></br></p>
+<p>如果一个属性没有出现在 $\small\mathrm{group\ by}$ 中且出现在了 $\small\mathrm{select}$ 中，那么它一定出现在聚集函数内部，否则这就是一条错误的查询。<br>
+(含有 $\small\mathrm{group\ by}$ 的查询语句中 $\small\mathrm{select}$ 的只能是被分组的属性 或 聚集函数)
+</br></p>
 <h4 id="3-mathrmhaving">(3). $\mathrm{having}$ 子句</h4>
 <p>有时候，我们需要直接对分组限定条件，此时需要使用 $\mathrm{having}$ 子句。由于 $\mathrm{having}$ 子句中的谓词在分组生效后才起作用，因此可以使用聚集函数。<br>
 &emsp;包含聚集、$\small\mathrm{group\ by}$ 和 $\small\mathrm{having}$ 的查询可通过下面的操作序列定义：
