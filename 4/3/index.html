@@ -15,7 +15,7 @@
     
     
       
-        <title>2.relational algebra - Learning Notes of Data Base Management System</title>
+        <title>3. query optimization - Learning Notes of Data Base Management System</title>
       
     
     
@@ -105,7 +105,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              2.relational algebra
+              3. query optimization
             
           </span>
         </div>
@@ -201,12 +201,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       I Relational Model
@@ -230,7 +228,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../1/" title="1.basic concepts" class="md-nav__link">
+    <a href="../../1/1/" title="1.basic concepts" class="md-nav__link">
       1.basic concepts
     </a>
   </li>
@@ -240,179 +238,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        2.relational algebra
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="2.relational algebra" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../1/2/" title="2.relational algebra" class="md-nav__link">
       2.relational algebra
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1. 关系代数概述
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2. 基本运算
-  </a>
-  
-    <nav class="md-nav" aria-label="2. 基本运算">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_1" class="md-nav__link">
-    (1). 选择
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2_1" class="md-nav__link">
-    (2). 投影
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    (3). 并运算
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    (4). 集合差
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    (5). 笛卡尔积
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    (6). 更名
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3_1" class="md-nav__link">
-    3. 附加运算
-  </a>
-  
-    <nav class="md-nav" aria-label="3. 附加运算">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_2" class="md-nav__link">
-    (1). 集合交
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2_2" class="md-nav__link">
-    (2). 自然连接
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3_2" class="md-nav__link">
-    (3). 赋值
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4_1" class="md-nav__link">
-    (4). 外连接
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5_1" class="md-nav__link">
-    (5). 除
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4_2" class="md-nav__link">
-    4. 扩展运算
-  </a>
-  
-    <nav class="md-nav" aria-label="4. 扩展运算">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_3" class="md-nav__link">
-    (1). 广义投影
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2_3" class="md-nav__link">
-    (2). 聚集
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -557,10 +387,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
     
     <label class="md-nav__link" for="nav-6">
       IV Storage And Querying
@@ -584,7 +416,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../4/1/" title="1. indexing and hashing" class="md-nav__link">
+    <a href="../1/" title="1. indexing and hashing" class="md-nav__link">
       1. indexing and hashing
     </a>
   </li>
@@ -596,7 +428,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../4/2/" title="2. query processing" class="md-nav__link">
+    <a href="../2/" title="2. query processing" class="md-nav__link">
       2. query processing
     </a>
   </li>
@@ -606,11 +438,56 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../4/3/" title="3. query optimization" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        3. query optimization
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="3. query optimization" class="md-nav__link md-nav__link--active">
       3. query optimization
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 关系代数等价转换规则
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 启发式优化算法
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -698,138 +575,15 @@
       
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
-    1. 关系代数概述
+    1. 关系代数等价转换规则
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
-    2. 基本运算
+    2. 启发式优化算法
   </a>
-  
-    <nav class="md-nav" aria-label="2. 基本运算">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_1" class="md-nav__link">
-    (1). 选择
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2_1" class="md-nav__link">
-    (2). 投影
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    (3). 并运算
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    (4). 集合差
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    (5). 笛卡尔积
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    (6). 更名
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3_1" class="md-nav__link">
-    3. 附加运算
-  </a>
-  
-    <nav class="md-nav" aria-label="3. 附加运算">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_2" class="md-nav__link">
-    (1). 集合交
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2_2" class="md-nav__link">
-    (2). 自然连接
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3_2" class="md-nav__link">
-    (3). 赋值
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4_1" class="md-nav__link">
-    (4). 外连接
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5_1" class="md-nav__link">
-    (5). 除
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4_2" class="md-nav__link">
-    4. 扩展运算
-  </a>
-  
-    <nav class="md-nav" aria-label="4. 扩展运算">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_3" class="md-nav__link">
-    (1). 广义投影
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2_3" class="md-nav__link">
-    (2). 聚集
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -849,108 +603,47 @@
                   
                 
                 
-                  <h1>2.relational algebra</h1>
+                  <h1>3. query optimization</h1>
                 
-                <p><font face="cycn">
-<font face="Consolas"></font>
-<font face="Times New Roman"></font></p>
-<h3 id="1">1. 关系代数概述</h3>
-<p>&emsp;关系代数是一种过程化查询语言，它包括一个运算的集合，这些运算以一个或两个关系为输入，产生一个新的关系作为结果，是学习其他数据库语言的基础。
-<html> 
-<body>
-<ul style="margin-top:-10px;margin-bottom:10px;line-height:30px;">
-<li style="margin:1px 16px;">基本运算：选择: $\sigma$，投影 (<font face="Times New Roman">project</font>): $\Pi$，并: $\cup$，差: $-$，笛卡尔积 (<font face="Times New Roman">Cartesian product</font>): $\times$，重命名 (<font face="Times New Roman">rename</font>): $\rho$</li>
-<li style="margin:1px 16px;">其他运算：交，自然连接 (<font face="Times New Roman">natural join</font>)，除</li>
+                <p><font class="generalcy"></p>
+<h3 id="1">1. 关系代数等价转换规则</h3>
+<ol style="margin-top:-13px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 16px;">选择串接律:</li>
+&emsp;&emsp;$\sigma_{c_1\ \land\ c_2\ \land ...}(E) = \sigma_{c_1}(\sigma_{c_2}( ...\sigma_{c_n}(E)))$
+<li style="margin:1px 16px;">选择交换律:</li>
+&emsp;&emsp;$\sigma_{c_1}(\sigma_{c_2}(E)) = \sigma_{c_2}(\sigma_{c_1}(E))$
+<li style="margin:1px 16px;">投影串接律:</li>
+&emsp;&emsp;$\Pi_{L_1}(\Pi_{L_2}(...\Pi_{L_n}(E))) = \Pi_{L_1}(E),\qquad L_1 \subseteq L_2 \subseteq ... \subseteq L_n$
+<li style="margin:1px 16px;">选择投影交换律:</li>
+&emsp;&emsp;$\Pi_{L}(\sigma_{C}(E)) = \sigma_{C}(\Pi_{L}(E))$，其中 $C$ 只涉及 $L$ 中的属性;<br>
+&emsp;&emsp;$\Pi_{L}(\sigma_{C}(E)) = \Pi_{L}(\sigma_{C}(\Pi_{L,\ B_1,\ ...,B_m}((E)))$，其中 $C$ 还涉及 $L$ 以外的属性 $B_1,...,B_m$
+<li style="margin:1px 16px;">交换律、结合律:</li>
+&emsp;&emsp;$E_1 \times E_2 = E_2 \times E_1,\ \ (E_1 \times E_2) \times E_3 = E_1 \times (E_2 \times E_3)$ <br>
+&emsp;&emsp;$E_1 ⋈ E_2 = E_2 ⋈ E_1,\ \ ...$ <br>
+&emsp;&emsp;$E_1 \cup E_2 = E_2 \cup E_1, \ \ ...$<br>
+&emsp;&emsp;$E_1 \cap E_2 = E_2 \cap E_1, \ \ ...$
+<li style="margin:1px 16px;">选择对笛卡尔积 / 连接的分配率: &emsp;尽可能先做选择</li>
+&emsp;&emsp;$\sigma_{c_1}(E_1 ⋈_{c_2} E_2) = \sigma_{c_1}(E_1) ⋈_{c_2} E_2$，&ensp; $c_1$ 只涉及 $E_1$ 中的属性 <br>
+&emsp;&emsp;$\sigma_{c_1}(E_1 ⋈_{c_2} E_2) = \sigma_{c_{11}}(E_1) ⋈_{c_2} \sigma_{c_{12}}(E_2)$，&ensp; $c_1 = c_{11} \ \land \ c_{12}$ 分别只涉及 $E_1$, $E_2$ 中属性<br>
+&emsp;&emsp;$⋈$ 换成 $\times$ 同理
+<li style="margin:1px 16px;">投影对笛卡尔积 / 连接的分配率: &emsp;先做投影</li>
+&emsp;&emsp;$\Pi_{L}(E_1 ⋈_{c} E_2) = \Pi_{L_1}(E_1) ⋈_{c} \Pi_{L_2}(E_2)$，&ensp;$L = L_1 \land L_2$<br>
+&emsp;&emsp;$⋈$ 换成 $\times$ 同理
+<li style="margin:1px 16px;">选择 / 投影对集合运算的分配率</li>
+</ol>
+
+<h3 id="2">2. 启发式优化算法</h3>
+<ul style="margin-top:-13px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 16px;">把每个选择操作 $\sigma_{c_1\ \land\ ...\ \land c_n}$ 转化为 $\sigma_{c_1}(\sigma_{c_2}(...))$</li>
+<li style="margin:1px 16px;">依据 选择交换律、选择投影交换律 1、选择对连接 / 笛卡尔积 / 集合的分配率，尽可能把选择操作移到树底部</li>
+<li style="margin:1px 16px;">依据 投影串接律、选择投影交换律 12、投影对连接 / 笛卡尔积 / 集合的分配率，尽可能把投影操作移到树底部 (如果投影对于它下面的表达式的所有属性进行，去掉之)</li>
+<li style="margin:1px 16px;">依据 选择串接律、选择投影交换律，把串接的多个选择或投影，转化为单个的选择或投影</li>
+<li style="margin:1px 16px;">依据 投影 / 笛卡尔积的结合律，重排叶结点，使得最小选择操作的先执行</li>
+<li style="margin:1px 16px;">组合依次相邻的笛卡尔积和选择操作，形成连接操作</li>
+<li style="margin:1px 16px;">划分子树，划分依据为: 二目运算、二目运算的一目直接祖先、二目运算包含叶子的一目子树</li>
 </ul>
-</body>
-</html></p>
-<h3 id="2">2. 基本运算</h3>
-<h4 id="1_1">(1). 选择</h4>
-<p>&emsp;选择运算选出满足给定谓词的元组。用 $\sigma$ 表示选择，将谓词写作下标，参数写在括号中。通常，谓词允许六种比较运算符和连词 ($\lor, \land, \lnot$)。例如：</p>
-<p>$$\sigma_{\mathit{dept\_name=\mathrm{"Physics"} \ \land\ salary&gt;90000}} (\mathit{instructor})$$</p>
-<h4 id="2_1">(2). 投影</h4>
-<p>&emsp;投影运算返回作为参数的关系，但排除指定属性外的属性，所得结果默认消除重复元组。例如：
-$$\Pi_{\mathit{ID,name,salary}}\mathit{(instructor)}$$</p>
-<h4 id="3">(3). 并运算</h4>
-<p>&emsp;要使并运算 $r\cup s$ 有意义，必须保证做并运算的关系是相容的：
-<html> 
-<body>
-<ul style="margin-top:-10px;margin-bottom:10px;line-height:30px;">
-<li style="margin:1px 29px;">$r$ 和 $s$ 的属性数目必须相同；</li>
-<li style="margin:1px 29px;">对 $\forall\ i$，$r$ 的第 $i$ 个属性的域必须与 $s$ 的第 $i$ 个属性的域相同。</li>
-</ul>
-</body>
-</html></p>
-<p>&emsp;例如：
-$$\Pi_{\mathit{course\_id}}(\sigma_{semester=\mathrm{"Fall"}}(section)) \ \cup\ \Pi_{\mathit{course\_id}}(\sigma_{semester=\mathrm{"Spring"}}(section))$$</p>
-<h4 id="4">(4). 集合差</h4>
-<p>&emsp;集合差运算找出在一个关系而不在另一个关系中的那些元组。例如：
-$$\Pi_{\mathit{course\_id}}(\sigma_{semester=\mathrm{"Fall"}}(section)) \ -\ \Pi_{\mathit{course\_id}}(\sigma_{semester=\mathrm{"Spring"}}(section))$$</p>
-<h4 id="5">(5). 笛卡尔积</h4>
-<p>&emsp;笛卡尔积运算可使任意两个关系组合到一起。以 $\small r_1=\mathit{instructor(ID, name, dept\_name)}$ 和 $\small r_2=\mathit{teaches(ID,course\_id,semester)}$ 为例，对于 $r_1\times r_2$，需要一个机制区分同名属性，因此有：
-$$r_1\times r_2=(\mathit{instructor.ID,\ teaches.ID,\ name,\ dept\_name,\ course\_id,\ semester})$$
-这种方法在与自身作笛卡尔积或使用关系代数表达式作参数时会产生问题，这些问题通过更名运算避免。</p>
-<p>例如，假设我们需要找出物理系所有教师，以及他们教授的所有课程，则有：
-$$\sigma_{\mathit{inst.ID=teaches.ID}}(\sigma_{\mathit{dept\_name=\mathrm{"Physics"}}}(instructor\times teaches))$$</p>
-<h4 id="6">(6). 更名</h4>
-<p>关系代数表达式的结果没有可供引用的名字，更名运算解决此问题，它有两种形式：
-<html> 
-<body>
-<ul style="margin-top:-10px;margin-bottom:10px;line-height:30px;">
-<li style="margin:1px 26px;">$\small \rho_x(E)$ 返回表达式 $\small E$ 的结果，并把名字 $\small x$ 赋给了它</li>
-<li style="margin:1px 26px;">若表达式 $\small E$ 是 $n$ 元的，则更名运算的形式为 $\small \rho_{x(A_1,...,A_n)}(E)$，赋给 $\small E$ 名字 $x$ 的同时，将各属性更名为 $\small A_1,...,A_n$。</li>
-</ul>
-</body>
-</html></p>
-<p>例：查找大学中的最高工资：
-$$\Pi_{\mathit{salary}}(instructor)-\Pi_{\mathit{instructor.salary}}(\sigma_{\mathit{instructor.salary&lt;d.salary}}(instructor\times \rho_d(instructor)))$$
-其中更名运算不是必需的，计算非最高工资可以通过属性的位置标记实现：
-$$\Pi_{\$4}(\sigma_{\$4&lt;\$8}(instructor\times instructor))$$
-由于这种方式不便于记忆，故在这里不使用。</p>
-<h3 id="3_1">3. 附加运算</h3>
-<p>&emsp;关系代数的基本运算足以表达任何关系代数查询，但若只局限于此，一些表达式会变得冗长，因此引入附加运算。</p>
-<h4 id="1_2">(1). 集合交</h4>
-<p>&emsp;同集合并，交也需要满足相容性。由 $r\cap s=r-(r-s)$，集合交只是为了方便表达。</p>
-<h4 id="2_2">(2). 自然连接</h4>
-<p>&emsp;多数情况下，涉及笛卡尔积的查询会包含一个对笛卡尔积结果进行选择的运算，该选择要求两个关系的所有相同属性值一致，最后还要去除重复属性。因此，令 $\small R$ 和 $\small S$ 为两个关系模式，关系 $r$ 和 $s$ 的自然连接形式化定义为
-$$r\bowtie s=\Pi_{R\cup S}(\sigma_{r.A_1=s.A_1\ \land \ r.A_2=s.A_2 \ \land ... \land \ r.A_n=s.A_n}(r\times s))$$
-其中 $\small R\cap S=\lbrace A_1,\ A_2,\ ...,A_n\rbrace$。若 $\small R\cap S=\emptyset$，则 $r\bowtie s = r\times s$。</p>
-<p>自然连接满足结合律。例：找出计算机系所有教师，以及他们所教授的课程的名称
-$$\Pi_{\mathit{name,title}}(\sigma_{dept\_name=\mathrm{"Comp.Sci"}}(\mathit{instructor}\bowtie\mathit{teaches}\bowtie\mathit{course}))$$</p>
-<p>$\theta$ 连接是自然连接的扩展，它把选择运算和笛卡尔积运算合并为一个运算：
-$$r\bowtie_\theta s =\sigma_\theta(r\times s)$$</p>
-<h4 id="3_2">(3). 赋值</h4>
-<p>&emsp;赋值运算可以简化复杂查询，将其表达为一个顺序程序，该程序由一系列赋值和一个查询结果表达式组成。自然连接可表达为：
-$$
-\begin{aligned}
-&amp;\mathit{temp1}\ \gets\ r\times s\\
-&amp;\mathit{temp2}\ \gets\ \sigma_{r.A_1=s.A_1\ \land \ r.A_2=s.A_2 \ \land ... \land \ r.A_n=s.A_n}(\mathit{temp1})\\
-&amp;\mathit{result}=\Pi_{R\cup S}(\mathit{temp2})
-\end{aligned}
-$$</p>
-<h4 id="4_1">(4). 外连接</h4>
-<p>&emsp;外连接 (<font face="Times New Roman">outer-join</font>) 运算是连接运算的扩展。如果 $\small \mathit{instructor}$ 中有些教师不教课，那么 $\small \mathit{instructor}\bowtie \mathit{teaches}$ 中就会无法查询到这些教师的信息。</br>
-&emsp;左外连接 (⟕) 把左侧关系中所有与右侧关系中任一元组不匹配的元组的右侧属性部分用空值填充，并添加到自然连接的结果中；右外连接 (⟖) 与此对称，全外连接 (⟗) 既做左外连接又做右外连接。左外连接可用基本关系代数表示为：
-$$r⟕s=(r\Join s)\cup(r-\Pi_R(r\Join s))\times \lbrace(\mathit{null,\ ...\ ,null\ })\rbrace$$
-其中常数关系 $\lbrace(\mathit{null,\ ... \ ,null\ })\rbrace$ 的模式是 $\small S-R$。</br>
-&emsp;由于外连接可能产生含有空值的结果，我们需要了解不同的关系代数运算是如何处理空值的。</p>
-<h4 id="5_1">(5). 除</h4>
-<p>以 $\small r\div s$ 为例，首先将 $\small R$ 分为两部分：$\small X=R-S$ 和 $\small Y=R-(R-S)$。把 $\small r$ 中所有的元组按照 $\small X$ 是否相等划分为组，保留那些 $\small Y$ 部分包含了 $\small s$ 中所有取值的组。最后按 $\small X$ 投影。即：
-$$r\div s=\lbrace t | t\in\Pi_{R-S}(r)\ \land \ \forall u \in s(tu \in r) \rbrace $$
-其中 $tu$ 是元组的连接。除操作用关系代数表达为：
-$$r\div s = \Pi_{R-S}(r)-\Pi_{R-S}((\Pi_{R-S}(r)\times s)-r)$$</p>
-<h3 id="4_2">4. 扩展运算</h3>
-<p>扩展的关系代数运算可以实现一些用基本的关系代数运算无法表达的查询。</p>
-<h4 id="1_3">(1). 广义投影</h4>
-<p>&emsp;它通过允许在投影列表中使用算术运算和字符串函数来对投影进行扩展。例：
-$$\Pi_{\mathit{ID,name,salary/12}}(\mathit{instructor})$$</p>
-<h4 id="2_3">(2). 聚集</h4>
-<p>&emsp;聚集运算 $\mathcal{G}$ 通过对值的集合使用聚集函数扩展关系代数运算。常用的聚集函数有 $\mathrm{sum、avg、count、min、max}$ 等。聚集函数可以作用于 <font face="Times New Roman">multiset</font>，如果需要去除重复值，可以通过连字符把 $\mathrm{distinct}$ 附加在函数名后。</p>
-<p>例：找出春季学期教课的教师数：
-$$\mathcal{G}_{\mathrm{count-distinct}(ID)}(\sigma_{\mathit{semester=\mathrm{"Spring"}}}(\mathit{teaches}))$$</p>
-<p>有时候，我们希望对一组元组集合而非单个元组集合执行聚集函数。例如，求出每个系的平均工资：
-$$_\mathit{dept\_name}\mathcal{G}_{\mathrm{average}(\mathit{salary})}(\mathit{instructor})$$
-该操作首先通过 $\small\mathit{dept\_name}$ 对 $\small\mathit{instructor}$ 进行分组，然后再执行指定的聚集。</p>
+
+<p>最后，根据划分的子树，按序计算、得到最终结果</p>
 <p></font></p>
                 
               
@@ -970,7 +663,7 @@ $$_\mathit{dept\_name}\mathcal{G}_{\mathrm{average}(\mathit{salary})}(\mathit{in
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../1/" title="1.basic concepts" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../2/" title="2. query processing" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
             </div>
@@ -979,19 +672,19 @@ $$_\mathit{dept\_name}\mathcal{G}_{\mathrm{average}(\mathit{salary})}(\mathit{in
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                1.basic concepts
+                2. query processing
               </div>
             </div>
           </a>
         
         
-          <a href="../../2/1/" title="1.introduction" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../5/1/" title="1. concurrency control" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                1.introduction
+                1. concurrency control
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
