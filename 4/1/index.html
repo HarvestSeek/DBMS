@@ -813,14 +813,16 @@
 <h3 id="4-hash">4. Hash 文件</h3>
 <h4 id="1_2">(1). 静态散列</h4>
 <h4 id="2_2">(2). 可扩展散列</h4>
-<p>桶的数目动态变化，且是 $2$ 的幂。基本参数有:
-<ul style="margin-top:-16px;margin-bottom:10px;line-height:30px;">
-<li style="margin:1px 26px;">$k$: 哈希码的最大位数，桶的数目上限为 $2^k$</li>
-<li style="margin:1px 26px;">$i$: 当前已使用的最大位数，当前桶数目为 $2^i$</li>
-<li style="margin:1px 26px;">每个被索引块右上角标注使用的位数</li>
+<p>用一个数组存储桶指针的目录，每次桶溢出时，溢出桶分裂。基本参数有:
+<ul style="margin-top:-16px;margin-bottom:2px;line-height:30px;">
+<li style="margin:1px 26px;">$i$: 全局位深度；代表桶数组大小 ($2^i$)、当前最大的局部位深度；</li>
+<li style="margin:1px 26px;">$i_j$: 第 $j$ 个桶的局部位深度</li>
 </ul>
-每一个 <cy>hash</cy> 桶的大小为一个磁盘块。插入操作导致一个桶的记录数超过其容量时，将这个桶分裂成两个桶，并重新散列其中的数据，同时右上角标注加一。<br>
-问题: 桶的数据增长过快，可能导致主存放不下</p>
+根据搜索码 $K$，执行插入 / 查询操作：首先计算 $\mathrm{hash}(K)$ 的前 $i$ 个高位，查找对应的桶 $j$。若 $j$ 未满，直接插入；若已满，按以下过程分裂:
+<ul style="margin-top:0px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 26px;">若 $i=i_j$，则桶地址表数组中只有一个元素指向 $j$。对 $i$ 加一，此时地址表翻倍，有两个地址指向 $j$；然后分裂桶 $j$，并重新散列其中的元素</li>
+<li style="margin:1px 26px;">若 $i&gt; i_j$，则桶地址表数组中有多个元素指向 $j$，因此只需调整局部位深度就可以实现桶的分裂</li>
+</ul></p>
 <h3 id="5">5. 索引文件</h3>
 <h4 id="1_3">(1). 索引分类</h4>
 <p>按索引结构分类:
